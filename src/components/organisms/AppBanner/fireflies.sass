@@ -1,0 +1,73 @@
+@use "sass:math"
+
+$quantity: 25
+
+.firefly
+  position: absolute
+  left: 50%
+  top: 50%
+  width: min(1.2vw, 3px)
+  height: min(1.2vw, 3px)
+  margin: -0.2vw 0 0 9.8vw
+  animation: move ease-in-out 600s alternate infinite
+  pointer-events: none
+  background: transparent
+
+  &::before,
+  &::after
+    content: ''
+    position: absolute
+    width: 100%
+    height: 100%
+    border-radius: 50%
+    transform-origin: -10vw
+
+  &::before
+    background: transparent
+    opacity: 1
+    animation: drift linear infinite
+
+  &::after
+    background: rgba(255, 255, 255, 0.5)
+    opacity: 1
+    box-shadow: 0 0 0vw 0vw yellow
+    animation: drift linear infinite, flash ease infinite
+    animation-fill-mode: both
+
+// Randomize Fireflies Motion
+@for $i from 1 through $quantity
+  $steps: math.random(12) + 16
+  $rotationSpeed: math.random(8) + 3s
+  $lightDuration: math.random(4000) + 2000ms
+
+  .firefly:nth-child(#{$i})
+    animation-name: move#{$i}
+
+    &::before
+      animation-duration: #{$rotationSpeed}
+
+    &::after
+      animation-duration: #{$rotationSpeed}, #{$lightDuration}
+      animation-delay: 0ms, 0ms
+
+  @keyframes move#{$i}
+    @for $step from 0 through $steps
+      #{math.div($step * 100, $steps)}%
+        $x: math.random(100) - 50
+        $y: math.random(100) - 50
+        $scale: math.div(math.random(75), 100) + 0.25
+        transform: translateX(#{$x}vw) translateY(#{$y}vh) scale(#{$scale})
+
+@keyframes drift
+  0%
+    transform: rotate(0deg)
+  100%
+    transform: rotate(360deg)
+
+@keyframes flash
+  0%, 30%, 100%
+    opacity: 0.25
+    box-shadow: 0 0 0vw 0vw yellow
+  5%
+    opacity: 1
+    box-shadow: 0 0 2vw 0.4vw yellow

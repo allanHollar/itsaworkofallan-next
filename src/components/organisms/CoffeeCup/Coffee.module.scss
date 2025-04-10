@@ -1,0 +1,119 @@
+$cup: #ebe6d6;
+$coffee: #532d09;
+$smoke: rgba(#333, 0.2);
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+.cup {
+  height: 110px;
+  width: 140px;
+  border-radius: 0 0 150px 150px;
+  position: relative;
+  background: linear-gradient(to right, #cec4a7, #ebe6d6);
+  box-shadow: inset 17px -7px 0 0 #cec4a7;
+  user-select: none;
+  cursor: default;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    display: block;
+  }
+
+  // Coffee cup lip
+  &::before {
+    width: 140px;
+    height: 40px;
+    border-radius: 50%;
+    top: -24px;
+    left: 0;
+    box-shadow: inset 3px 0 0 0 #cec4a7, inset 0 14px 0 0 #ebe6d6;
+    z-index: 1;
+  }
+
+  // Handle
+  &::after {
+    width: 40px;
+    height: 40px;
+    border-radius: 0 50% 50%;
+    right: -32px;
+    top: 0;
+    border: 10px solid $cup;
+    box-shadow: inset 7px -7px 0 0 #cec4a7, 3px -3px 0 0 #ebe6d6;
+    z-index: 1;
+  }
+
+  // Coffee liquid
+  .coffee {
+    position: absolute;
+    width: 140px;
+    height: 35px;
+    top: -22px;
+    left: 0;
+    border-radius: 50%;
+    background: radial-gradient(#9d6646, #8d5b3f, #7d5138, #6d4731, #5e3d2a);
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      display: block;
+      background: $smoke;
+      border-radius: 100px 0;
+      width: 40px;
+      height: 12px;
+      z-index: 2;
+      opacity: 0;
+      filter: blur(5px);
+    }
+
+    &::before {
+      animation: smo 2s infinite;
+    }
+
+    &::after {
+      animation: smo2 3s infinite;
+    }
+  }
+}
+
+@keyframes smo {
+  0% {
+    opacity: 0;
+    transform: rotateZ(-45deg);
+    top: -20px;
+    left: 10px;
+  }
+  65% {
+    opacity: 1;
+  }
+  100% {
+    transform: rotateZ(-45deg);
+    opacity: 0;
+    top: -40px;
+    left: 40px;
+  }
+}
+
+@keyframes smo2 {
+  0% {
+    opacity: 0;
+    transform: rotateZ(-45deg);
+    top: 0px;
+    left: 50px;
+  }
+  65% {
+    opacity: 1;
+  }
+  100% {
+    transform: rotateZ(-45deg);
+    opacity: 0;
+    top: -40px;
+    left: 100px;
+  }
+}

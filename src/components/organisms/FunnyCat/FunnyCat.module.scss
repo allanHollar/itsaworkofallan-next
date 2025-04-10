@@ -1,0 +1,163 @@
+.catContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  position: relative;
+  contain-intrinsic-size: 200px;
+}
+
+.catContainer,
+.ball,
+.ballShadow,
+.eyeWatch,
+.glare {
+  will-change: transform;
+}
+
+.cat {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+
+  img {
+    display: block;
+    position: absolute;
+    left: calc(50% - 100px);
+  }
+}
+
+.ears {
+  position: absolute;
+}
+
+.ear {
+  width: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 20px solid pink;
+  position: relative;
+}
+
+.eLeft {
+  left: -49px;
+  top: -16px;
+  transform: rotate(-48deg);
+}
+
+.eRight {
+  left: 49px;
+  top: -36px;
+  transform: rotate(48deg);
+}
+
+.eye {
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  background-color: transparent;
+  border-radius: 50%;
+  top: 90px;
+  overflow: hidden;
+  animation: eyesTrackShadow 1.5s ease-in-out infinite alternate;
+}
+
+.left {
+  left: calc(50% - 39px);
+}
+
+.right {
+  left: calc(50% + 15px);
+}
+
+.eyeWatch {
+  width: 15px;
+  height: 15px;
+  background-color: #221907;
+  border: 1px #000 solid;
+  border-radius: 50%;
+  margin-top: 8px;
+  transform: translateX(0) rotate(25deg);
+  animation: trackIt 1.5s ease-in-out infinite alternate;
+  overflow: hidden;
+}
+
+.glare {
+  width: 5px;
+  height: 5px;
+  background-color: #fff;
+  border-radius: 50%;
+  position: relative;
+  top: 3px;
+  animation: light 1.5s ease-in-out infinite alternate;
+}
+
+.ballContainer {
+  width: 200px;
+  height: 20px;
+  margin-top: auto;
+}
+
+.ball {
+  width: 20px;
+  height: 20px;
+  background-color: #6e64f0;
+  box-shadow: 1px -1px 3px #000 inset;
+  border-radius: 50%;
+  animation: ballLight 1.5s ease-in-out infinite alternate;
+  transform: translateX(0); /* default state */
+}
+
+.ballShadow {
+  width: 20px;
+  height: 20px;
+  background-color: #000;
+  border-radius: 50%;
+  box-shadow: 0 0 5px 2px #fff inset;
+  animation: ballRolling 1.5s ease-in-out infinite alternate;
+  transform: translateX(0); /* default state */
+}
+
+// Animations
+@keyframes trackIt {
+  from {
+    transform: translateX(10px) rotate(25deg);
+  }
+  to {
+    transform: translateX(0) rotate(-25deg);
+  }
+}
+
+@keyframes light {
+  0% {
+    transform: translateX(0px);
+    opacity: 3;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(4px);
+    opacity: 3;
+  }
+}
+
+@keyframes ballRolling {
+  0% {
+    transform: translateX(200px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes ballLight {
+  0% {
+    box-shadow: -1px -1px 3px #000 inset;
+    transform: translateX(0);
+  }
+  100% {
+    box-shadow: 1px -1px 3px #000 inset;
+    transform: translateX(3px);
+  }
+}
