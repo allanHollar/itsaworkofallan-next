@@ -1,7 +1,9 @@
+"use client";
 import { FC } from "react";
 import { useProjects } from "../../context/ProjectsContext";
-import { Link } from "react-router-dom";
-import ProjectSingle from "./ProjectSingle";
+import Link from "next/link";
+import Image from "next/image";
+import ProjectSingle from "../particles/projects/ProjectSingle";
 import { Project } from "../../types/types";
 import { cdnBaseUrl } from "../../config";
 
@@ -20,7 +22,7 @@ const ProjectsGrid: FC = () => {
           <span className="border-[#efd5b4] border-b-4">Built & Shipped!</span>
         </h3>
 
-        <img
+        <Image
           className="block mx-auto mb-5"
           src={HappyNinja}
           alt="Happy Ninja"
@@ -33,7 +35,7 @@ const ProjectsGrid: FC = () => {
         {Object.entries(projects).map(
           ([projectId, projectData]: [string, Project]) => (
             <Link
-              to={`/projects/${projectId}`}
+              href={`/projects/${projectId}`}
               key={projectId}
               className="mb-10 sm:mb-0 last:mb-0"
             >

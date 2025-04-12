@@ -1,6 +1,8 @@
-import { useREsumeContext } from "../../../context/ResumeContext";
-import CoffeeCup from "../../reusable/CoffeeCup/CoffeeCup";
-import { TextFade } from "../../reusable/TextAnimation";
+"use client";
+
+import { useREsumeContext } from "@/context/ResumeContext";
+import CoffeeCup from "@/components/particles/CoffeeCup/CoffeeCup";
+import { TextFade } from "@/components/atoms/TextAnimation";
 
 const WorkHistory = () => {
   const { resume } = useREsumeContext();

@@ -1,3 +1,4 @@
+"use client";
 import { useState, useContext, createContext, ReactNode } from "react";
 import { projectsData } from "../data/projects";
 import { ProjectData } from "../types/types";

@@ -1,10 +1,12 @@
+import { JSX } from "react";
+import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLinkedin, faGithub } from "@fortawesome/free-brands-svg-icons";
-import { TextFade } from "../../reusable/TextAnimation";
-import { cdnBaseUrl } from "../../../config";
+import { TextFade } from "@/components/atoms/TextAnimation";
+import { cdnBaseUrl } from "@/config";
 import AppFooterCopyright from "../AppFooterCopyright";
-import Sakura from "../../reusable/Sakura/Sakura";
-import "./social.css";
+import Sakura from "@/components/particles/Sakura/Sakura";
+import styles from "./social.module.css";
 
 interface SocialLink {
   id: number;
@@ -17,12 +19,22 @@ const ProfileImage = `${cdnBaseUrl}/ar-anime-profile.webp`;
 const socialLinks: SocialLink[] = [
   {
     id: 1,
-    icon: <FontAwesomeIcon icon={faLinkedin} className="text-blue-500 ikon" />,
+    icon: (
+      <FontAwesomeIcon
+        icon={faLinkedin}
+        className={`text-blue-500 ${styles.ikon} size-10`}
+      />
+    ),
     url: "https://www.linkedin.com/in/allanritumban/",
   },
   {
     id: 2,
-    icon: <FontAwesomeIcon icon={faGithub} className="text-[#6e5494] ikon" />,
+    icon: (
+      <FontAwesomeIcon
+        icon={faGithub}
+        className={`text-[#6e5494] ${styles.ikon} size-10`}
+      />
+    ),
     url: "https://github.com/allanHollar",
   },
 ];
@@ -45,22 +57,30 @@ const AppFooter = () => {
           something awesome happen!
         </p>
       </TextFade>
+
       <div className="z-10 items-end mx-auto container">
         <div className="opacity-95 mx-auto mt-5 border-8 border-white rounded-full w-40 h-40 overflow-hidden">
-          <img src={ProfileImage} alt="" width={144} height={144} />
+          <Image
+            src={ProfileImage}
+            alt="Allan's cartoon profile picture"
+            width={144}
+            height={144}
+          />
         </div>
 
-        <div className="social-overlap process-section mt100">
+        <div
+          className={`${styles["social-overlap"]} ${styles["process-section"]} mt100`}
+        >
           <div>
             <div className="justify-content-center row">
-              <div className="social-bar">
-                <div className="mb-3 text-center social-icons">
+              <div className={styles["social-bar"]}>
+                <div className={`mb-3 text-center ${styles["social-icons"]}`}>
                   <ul className="inline-block m-auto mt-5 border-white border-t-[3px] w-3/4 sm:w-1/3 text-center">
                     {socialLinks.map((link, index) => (
                       <li className="inline" key={index}>
                         <a
                           href={link.url}
-                          className="slider-nav-item"
+                          className={styles["slider-nav-item"]}
                           target="_blank"
                           rel="noreferrer"
                         >

@@ -1,3 +1,5 @@
+"use client";
+
 import { AnimatePresence, motion, useInView } from "framer-motion";
 import * as React from "react";
 

@@ -10,6 +10,9 @@ import { usePathname } from "next/navigation";
 import AppBanner from "@/components/organisms/AppBanner/AppBanner";
 import AppHeader from "@/components/organisms/AppHeader";
 
+// Utilities
+import ScrollToTop from "@/utilities/ScrollToTop";
+
 export default function ClientLayout({
   children,
 }: {
@@ -20,6 +23,7 @@ export default function ClientLayout({
   return (
     <div className="top-0 pt-[74px] w-full">
       <div key={pathname}>
+        <ScrollToTop />
         <AppHeader />
         <AppBanner />
         <Suspense>{children}</Suspense>

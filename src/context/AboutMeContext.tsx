@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, createContext, useContext, ReactNode } from "react";
+
 import { aboutMeData } from "../data/aboutMeData";
 import { AboutMeItem } from "../types/types";
 

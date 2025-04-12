@@ -20,14 +20,31 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        {/* Google Fonts Preconnect */}
+        {/* Favicons */}
+        <link
+          rel="icon"
+          href="/favicon/favicon-32x32.png"
+          sizes="32x32"
+          type="image/png"
+        />
+        <link
+          rel="icon"
+          href="/favicon/favicon-16x16.png"
+          sizes="16x16"
+          type="image/png"
+        />
+        <link
+          rel="apple-touch-icon"
+          href="/favicon/favicon-180x180.png"
+          sizes="180x180"
+        />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
+        {/* Google Fonts Preconnect */}
         <link
           rel="preconnect"
           href="https://fonts.gstatic.com"
           crossOrigin="anonymous"
         />
-
         {/* Google Fonts Stylesheets */}
         <link
           href="https://fonts.googleapis.com/css2?family=Happy+Monkey&display=swap"
@@ -37,7 +54,6 @@ export default function RootLayout({
           href="https://fonts.googleapis.com/css2?family=Happy+Monkey&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
           rel="stylesheet"
         />
-
         {/* Font Preload (Optional but Optimized) */}
         <link
           rel="stylesheet"
@@ -46,6 +62,7 @@ export default function RootLayout({
           type="font/woff2"
           crossOrigin="anonymous"
         />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
       </head>
       <body>
         <Providers>

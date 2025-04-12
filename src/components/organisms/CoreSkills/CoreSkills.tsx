@@ -11,7 +11,7 @@ import { useInView } from "react-intersection-observer";
 import { useREsumeContext } from "@/context/ResumeContext";
 
 // Components
-import CuteDog from "@/components/organisms/CuteDog/CuteDog";
+import CuteDog from "@/components/particles/CuteDog/CuteDog";
 import { TextFade } from "@/components/atoms/TextAnimation";
 
 // Types

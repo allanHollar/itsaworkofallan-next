@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import { Link as ScrollLink } from "react-scroll";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
@@ -50,12 +49,7 @@ const AppHeader: React.FC = () => {
 
   return (
     <div className="top-0 z-50 fixed bg-[#f5e8d7] shadow-md border-t-[5px] border-black border-solid w-full h-[74px]">
-      <motion.nav
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        id="nav"
-        className="mx-auto container"
-      >
+      <div className="mx-auto container">
         <div className={`${logoAlignment} z-10 flex items-center py-4`}>
           <div className="flex items-center space-x-4">
             <Link href="/">
@@ -87,7 +81,7 @@ const AppHeader: React.FC = () => {
             ))}
           </div>
         </div>
-      </motion.nav>
+      </div>
     </div>
   );
 };

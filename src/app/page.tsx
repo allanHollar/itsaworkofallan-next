@@ -1,17 +1,31 @@
+import { FC } from "react";
 import AboutMeBio from "@/components/organisms/AboutMeBio/AboutMeBio";
 import CoreSkills from "@/components/organisms/CoreSkills/CoreSkills";
-// import WorkHistory from "../components/WorkHistory/WorkHistory";
-// import ProjectsGrid from "../components/Projects/ProjectsGrid";
-// import ConnectForm from "../components/Connect/ConnectForm";
+import WorkHistory from "@/components/organisms/WorkHistory/WorkHistory";
+import HorizontalRule from "@/components/atoms/HorizontalRule";
+import ProjectsGrid from "@/components/organisms/ProjectsGrid";
+import AppPreFooter from "@/components/organisms/AppPreFooter/AppPreFooter";
+import AppFooter from "@/components/organisms/AppFooter/AppFooter";
 
-export default function HomePage() {
+const HomePage: FC = () => {
   return (
     <>
       <AboutMeBio />
+      <HorizontalRule />
+
       <CoreSkills />
-      {/* <WorkHistory />
+      <HorizontalRule />
+
+      <WorkHistory />
+      <HorizontalRule />
+
       <ProjectsGrid />
-      <ConnectForm /> */}
+      <HorizontalRule />
+
+      <AppPreFooter />
+      <AppFooter />
     </>
   );
-}
+};
+
+export default HomePage;
