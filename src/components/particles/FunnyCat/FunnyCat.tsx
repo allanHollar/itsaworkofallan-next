@@ -1,5 +1,6 @@
 import { FC } from "react";
 import { cdnBaseUrl } from "../../../config";
+import Image from "next/image";
 import styles from "./FunnyCat.module.scss";
 
 const FunnyCatImage = `${cdnBaseUrl}/cute-cat.webp`;
@@ -8,7 +9,7 @@ const FunnyCat: FC = () => {
   return (
     <div className={styles.catContainer}>
       <div className={styles.cat}>
-        <img
+        <Image
           src={FunnyCatImage}
           alt="Cat playing with a ball"
           width={200}

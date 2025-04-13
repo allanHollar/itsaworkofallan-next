@@ -1,6 +1,6 @@
 import { FC } from "react";
 import { motion } from "framer-motion";
-
+import Image from "next/image";
 interface ProjectSingleProps {
   title: string;
   category: string;
@@ -20,7 +20,7 @@ const ProjectSingle: FC<ProjectSingleProps> = ({ title, category, image }) => {
     >
       <div className="shadow-md hover:shadow-xl transition-all cursor-pointer">
         <div>
-          <img
+          <Image
             src={image}
             className="border-none"
             alt={`Screenshot of ${title} project`}
