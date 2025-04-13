@@ -1,11 +1,18 @@
+// Core Libraries
 import { JSX } from "react";
 import Image from "next/image";
+
+// Icons
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLinkedin, faGithub } from "@fortawesome/free-brands-svg-icons";
+
+// UI Components
 import { TextFade } from "@/components/atoms/TextAnimation";
-import { cdnBaseUrl } from "@/config";
 import AppFooterCopyright from "../AppFooterCopyright";
 import Sakura from "@/components/particles/Sakura/Sakura";
+
+// Config & Styles
+import { cdnBaseUrl } from "@/config";
 import styles from "./social.module.css";
 
 interface SocialLink {

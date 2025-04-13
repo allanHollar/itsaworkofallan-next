@@ -1,3 +1,4 @@
+"use client";
 import {
   useState,
   createContext,
@@ -6,8 +7,8 @@ import {
   Dispatch,
   SetStateAction,
 } from "react";
-import { projectsData as projectsDataJson } from "../data/projectsData";
-import { ProjectFullDetails } from "../types/types";
+import { projectsData as projectsDataJson } from "@/data/projectsData";
+import { ProjectFullDetails } from "@/types/types";
 
 interface SingleProjectContextType {
   singleProjectData: ProjectFullDetails;

@@ -1,6 +1,6 @@
 import { FC } from "react";
-import { useSingleProject } from "../../context/SingleProjectContext";
-import { TextFade } from "../reusable/TextAnimation";
+import { useSingleProject } from "@/context/SingleProjectContext";
+import { TextFade } from "@/components/atoms/TextAnimation";
 
 interface ProjectInfoProps {
   projectId: string;

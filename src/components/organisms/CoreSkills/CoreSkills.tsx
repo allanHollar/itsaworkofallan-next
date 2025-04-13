@@ -1,10 +1,6 @@
 "use client";
-
-// React and hooks
-import { useState, useEffect } from "react";
-
 // Third-party libraries
-import ProgressBar from "@ramonak/react-progress-bar";
+import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
 // Context
@@ -23,26 +19,30 @@ const AnimatedProgressBar = ({ resume }: { resume: LanguageItem }) => {
     triggerOnce: true,
   });
 
-  const [animatedCompleted, setAnimatedCompleted] = useState(0);
-
-  useEffect(() => {
-    if (inView) {
-      setAnimatedCompleted(resume.completed);
-    }
-  }, [inView, resume.completed]);
+  const scale = resume.completed / 100;
 
   return (
     <div className="mb-4 w-full" ref={ref}>
-      <ProgressBar
-        baseBgColor="#f5e8d7"
-        bgColor={resume.bgColor}
-        borderRadius="0px"
-        completed={animatedCompleted}
-        height="45px"
-        isLabelVisible={false}
-        width="97%"
-        transitionDuration="2s"
-      />
+      <div
+        style={{
+          backgroundColor: "#f5e8d7",
+          height: "45px",
+          width: "97%",
+          overflow: "hidden",
+        }}
+      >
+        <motion.div
+          initial={{ scaleX: 0 }}
+          animate={{ scaleX: inView ? scale : 0 }}
+          transition={{ duration: 2, ease: "easeInOut" }}
+          style={{
+            transformOrigin: "left",
+            backgroundColor: resume.bgColor,
+            height: "100%",
+            width: "100%", // full width, we're scaling it
+          }}
+        />
+      </div>
     </div>
   );
 };

@@ -1,4 +1,4 @@
-function AppFooterCopyright() {
+const AppFooterCopyright = () => {
   return (
     <div className="flex justify-center items-center font-general-regular text-center">
       <div
@@ -9,6 +9,6 @@ function AppFooterCopyright() {
       </div>
     </div>
   );
-}
+};
 
 export default AppFooterCopyright;

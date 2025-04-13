@@ -1,5 +1,4 @@
 "use client";
-
 // Core
 import { Suspense } from "react";
 
@@ -7,8 +6,9 @@ import { Suspense } from "react";
 import { usePathname } from "next/navigation";
 
 // Components
-import AppBanner from "@/components/organisms/AppBanner/AppBanner";
 import AppHeader from "@/components/organisms/AppHeader";
+import AppFooter from "@/components/organisms/AppFooter/AppFooter";
+import AppPreFooter from "@/components/organisms/AppPreFooter/AppPreFooter";
 
 // Utilities
 import ScrollToTop from "@/utilities/ScrollToTop";
@@ -25,8 +25,9 @@ export default function ClientLayout({
       <div key={pathname}>
         <ScrollToTop />
         <AppHeader />
-        <AppBanner />
         <Suspense>{children}</Suspense>
+        <AppPreFooter />
+        <AppFooter />
       </div>
     </div>
   );

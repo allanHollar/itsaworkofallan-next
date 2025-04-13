@@ -1,15 +1,22 @@
+"use client";
+// React
 import { FC } from "react";
+
+// Page Sections
+import AppBanner from "@/components/organisms/AppBanner/AppBanner";
 import AboutMeBio from "@/components/organisms/AboutMeBio/AboutMeBio";
 import CoreSkills from "@/components/organisms/CoreSkills/CoreSkills";
 import WorkHistory from "@/components/organisms/WorkHistory/WorkHistory";
-import HorizontalRule from "@/components/atoms/HorizontalRule";
 import ProjectsGrid from "@/components/organisms/ProjectsGrid";
-import AppPreFooter from "@/components/organisms/AppPreFooter/AppPreFooter";
-import AppFooter from "@/components/organisms/AppFooter/AppFooter";
+
+// Atoms
+import HorizontalRule from "@/components/atoms/HorizontalRule";
 
 const HomePage: FC = () => {
   return (
     <>
+      <AppBanner />
+
       <AboutMeBio />
       <HorizontalRule />
 
@@ -21,9 +28,6 @@ const HomePage: FC = () => {
 
       <ProjectsGrid />
       <HorizontalRule />
-
-      <AppPreFooter />
-      <AppFooter />
     </>
   );
 };

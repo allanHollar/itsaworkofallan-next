@@ -1,6 +1,7 @@
 import { FC } from "react";
-import { useSingleProject } from "../../context/SingleProjectContext";
-import { ProjectImages } from "../../types/types";
+import { useSingleProject } from "@/context/SingleProjectContext";
+import { ProjectImages } from "@/types/types";
+import Image from "next/image";
 
 interface ProjectGalleryProps {
   projectId: string;
@@ -16,7 +17,14 @@ const ProjectGallery: FC<ProjectGalleryProps> = ({ projectId }) => {
         {projectData.projectImages.map((project: ProjectImages) => {
           return (
             <div className="mb-10 sm:mb-0" key={project.id}>
-              <img src={project.img} alt={project.title} key={project.id} />
+              <Image
+                src={project.img}
+                alt={project.title}
+                key={project.id}
+                width={336}
+                height={293}
+                priority
+              />
             </div>
           );
         })}

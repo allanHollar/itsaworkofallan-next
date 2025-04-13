@@ -1,11 +1,11 @@
 "use client";
 import { FC } from "react";
-import { useProjects } from "../../context/ProjectsContext";
+import { useProjects } from "@/context/ProjectsContext";
 import Link from "next/link";
 import Image from "next/image";
-import ProjectSingle from "../particles/projects/ProjectSingle";
-import { Project } from "../../types/types";
-import { cdnBaseUrl } from "../../config";
+import ProjectSingle from "@/components/particles/projects/ProjectSingle";
+import { Project } from "@/types/types";
+import { cdnBaseUrl } from "@/config";
 
 const HappyNinja = `${cdnBaseUrl}/happy-ninja.webp`;
 

@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { useSingleProject } from "../../context/SingleProjectContext";
+import { useSingleProject } from "@/context/SingleProjectContext";
 
 interface ProjectSingleHeaderProps {
   projectId: string;

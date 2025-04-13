@@ -1,5 +1,4 @@
 "use client";
-
 // Next.js / core framework
 import Image from "next/image";
 
@@ -28,6 +27,7 @@ const AboutMeBio = () => {
               alt="Allan's profile picture"
               width={160}
               height={160}
+              priority
             />
           </div>
         </TextFade>

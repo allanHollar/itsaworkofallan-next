@@ -58,6 +58,7 @@ const AppHeader: React.FC = () => {
                 alt="Logo"
                 width={50}
                 height={42}
+                priority
               />
             </Link>
           </div>
