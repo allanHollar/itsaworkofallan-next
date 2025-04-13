@@ -29,7 +29,8 @@ const socialLinks: SocialLink[] = [
     icon: (
       <FontAwesomeIcon
         icon={faLinkedin}
-        className={`text-blue-500 ${styles.ikon} size-10`}
+        className={`text-blue-500 ${styles.ikon}`}
+        size="2x"
       />
     ),
     url: "https://www.linkedin.com/in/allanritumban/",
@@ -39,7 +40,8 @@ const socialLinks: SocialLink[] = [
     icon: (
       <FontAwesomeIcon
         icon={faGithub}
-        className={`text-[#6e5494] ${styles.ikon} size-10`}
+        className={`text-[#6e5494] ${styles.ikon}`}
+        size="2x"
       />
     ),
     url: "https://github.com/allanHollar",
