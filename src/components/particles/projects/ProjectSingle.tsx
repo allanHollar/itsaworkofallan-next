@@ -24,6 +24,8 @@ const ProjectSingle: FC<ProjectSingleProps> = ({ title, category, image }) => {
             src={image}
             className="border-none"
             alt={`Screenshot of ${title} project`}
+            width={390}
+            height={340}
           />
         </div>
         <div className="px-4 py-6 text-base text-center sm:text-sm">
