@@ -13,7 +13,6 @@ import Sakura from "@/components/particles/Sakura/Sakura";
 
 // Config & Styles
 import { cdnBaseUrl } from "@/config";
-import styles from "./social.module.css";
 
 interface SocialLink {
   id: number;
@@ -29,8 +28,7 @@ const socialLinks: SocialLink[] = [
     icon: (
       <FontAwesomeIcon
         icon={faLinkedin}
-        className={`text-blue-500 ${styles.ikon}`}
-        size="2x"
+        className={`text-blue-500 fa-2x ikon`}
       />
     ),
     url: "https://www.linkedin.com/in/allanritumban/",
@@ -40,7 +38,7 @@ const socialLinks: SocialLink[] = [
     icon: (
       <FontAwesomeIcon
         icon={faGithub}
-        className={`text-[#6e5494] ${styles.ikon}`}
+        className={`text-[#6e5494] fa-2x ikon}`}
         size="2x"
       />
     ),
@@ -78,18 +76,18 @@ const AppFooter = () => {
         </div>
 
         <div
-          className={`${styles["social-overlap"]} ${styles["process-section"]} mt100`}
+          className="social-overlap process-section mt100"
         >
           <div>
             <div className="justify-content-center row">
-              <div className={styles["social-bar"]}>
-                <div className={`mb-3 text-center ${styles["social-icons"]}`}>
+              <div className="social-bar">
+                <div className="mb-3 text-center social-icons">
                   <ul className="inline-block m-auto mt-5 border-white border-t-[3px] w-3/4 sm:w-1/3 text-center">
                     {socialLinks.map((link, index) => (
                       <li className="inline" key={index}>
                         <a
                           href={link.url}
-                          className={styles["slider-nav-item"]}
+                          className="slider-nav-item"
                           target="_blank"
                           rel="noreferrer"
                         >

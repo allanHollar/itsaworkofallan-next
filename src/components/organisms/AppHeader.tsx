@@ -1,4 +1,5 @@
 // Core & Framework
+import { useState, useCallback } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
@@ -45,6 +46,50 @@ const links: Link[] = [
   },
 ];
 
+const DEBOUNCE_DURATION = 2000; // 1 second between spins
+
+const LogoSpin = () => {
+  const [spinKey, setSpinKey] = useState(0);
+  const [canSpin, setCanSpin] = useState(true);
+
+  const handleDebouncedHover = useCallback(() => {
+    if (!canSpin) return;
+
+    setCanSpin(false);
+    setSpinKey((prev) => prev + 1);
+
+    setTimeout(() => {
+      setCanSpin(true);
+    }, DEBOUNCE_DURATION);
+  }, [canSpin]);
+
+  return (
+    <motion.div
+      key={spinKey}
+      initial={{ rotateY: 0 }}
+      animate={{ rotateY: 720 }}
+      transition={{ duration: 1.2, ease: "easeInOut" }}
+      style={{ perspective: 1000 }}
+      onMouseEnter={handleDebouncedHover}
+      className="cursor-pointer"
+    >
+      <motion.div
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+      >
+        <Image
+          src={`${cdnBaseUrl}/ar-brand.svg`}
+          alt="Logo"
+          width={50}
+          height={42}
+          priority
+        />
+      </motion.div>
+    </motion.div>
+  );
+};
+
 const AppHeader: React.FC = () => {
   const pathname = usePathname();
   const isProjectRoute = pathname.includes("projects");
@@ -60,22 +105,7 @@ const AppHeader: React.FC = () => {
         <div className={`${logoAlignment} z-10 flex items-center py-4`}>
           <div className="flex items-center space-x-4">
             <Link href="/">
-              <motion.div
-                layout
-                initial={{ rotateY: 0, opacity: 0 }}
-                whileInView={{ rotateY: 720, opacity: 1 }}
-                transition={{ duration: 1.2, ease: "easeInOut" }}
-                viewport={{ once: true, amount: 0.5 }}
-                style={{ perspective: 1000 }}
-              >
-                <Image
-                  src={`${cdnBaseUrl}/ar-brand.svg`}
-                  alt="Logo"
-                  width={50}
-                  height={42}
-                  priority
-                />
-              </motion.div>
+              <LogoSpin />
             </Link>
           </div>
 

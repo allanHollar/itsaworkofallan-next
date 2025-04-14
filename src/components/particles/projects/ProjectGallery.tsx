@@ -32,7 +32,6 @@ const ProjectGallery: FC<ProjectGalleryProps> = ({ projectId }) => {
           return (
             <div className="mb-10 sm:mb-0" key={project.id}>
               <motion.div
-                layout
                 key={projectId}
                 variants={itemVariant}
                 initial="hidden"

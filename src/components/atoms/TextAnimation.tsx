@@ -124,7 +124,7 @@ export function TextFadeFast({
     },
     hidden: {
       opacity: 0.6,
-      y: direction === "down" ? -8 : 8,
+      y: direction === "down" ? -1 : 8,
     },
   };
   const ref = React.useRef(null);

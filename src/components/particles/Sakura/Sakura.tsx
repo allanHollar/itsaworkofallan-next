@@ -1,7 +1,6 @@
 "use client";
 import { FC } from "react";
 import { useEffect, useState } from "react";
-import "./Sakura.css";
 
 const Sakura: FC = () => {
   const [visible, setVisible] = useState(false);

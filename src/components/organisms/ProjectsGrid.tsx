@@ -51,7 +51,6 @@ const ProjectsGrid: FC = () => {
       <div className="gap-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
         {Object.entries(projects).map(([projectId, projectData]) => (
           <motion.div
-            layout
             key={projectId}
             variants={itemVariant}
             initial="hidden"
