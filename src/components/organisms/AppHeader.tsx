@@ -46,7 +46,7 @@ const links: Link[] = [
   },
 ];
 
-const DEBOUNCE_DURATION = 2000; // 1 second between spins
+const DEBOUNCE_DURATION = 1000; // 1 second between spins
 
 const LogoSpin = () => {
   const [spinKey, setSpinKey] = useState(0);
