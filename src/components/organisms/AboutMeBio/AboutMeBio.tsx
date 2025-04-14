@@ -18,7 +18,7 @@ const AboutMeBio = () => {
 
   return (
     <div id="about" className="bg-[#1B1212] w-full">
-      <div className="flex sm:flex-row flex-col justify-center items-center sm:gap-20 mx-auto py-16 container">
+      <div className="flex sm:flex-row flex-col justify-center items-center sm:gap-20 mx-auto py-12 container">
         <TextFade direction="up">
           <div className="mx-auto mt-5 border-8 border-white rounded-full w-40 h-40 overflow-hidden">
             <Image
