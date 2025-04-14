@@ -28,7 +28,7 @@ const socialLinks: SocialLink[] = [
     icon: (
       <FontAwesomeIcon
         icon={faLinkedin}
-        className={`text-blue-500 fa-2x ikon`}
+        className={`text-blue-500 fa-3x ikon`}
       />
     ),
     url: "https://www.linkedin.com/in/allanritumban/",
@@ -38,8 +38,7 @@ const socialLinks: SocialLink[] = [
     icon: (
       <FontAwesomeIcon
         icon={faGithub}
-        className={`text-[#6e5494] fa-2x ikon}`}
-        size="2x"
+        className={`text-[#6e5494] fa-3x ikon`}
       />
     ),
     url: "https://github.com/allanHollar",
@@ -75,9 +74,7 @@ const AppFooter = () => {
           />
         </div>
 
-        <div
-          className="social-overlap process-section mt100"
-        >
+        <div className="social-overlap process-section mt100">
           <div>
             <div className="justify-content-center row">
               <div className="social-bar">
