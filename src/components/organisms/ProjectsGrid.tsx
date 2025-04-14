@@ -1,13 +1,30 @@
 "use client";
+// Core
 import { FC } from "react";
-import { useProjects } from "@/context/ProjectsContext";
+
+// Third-party
+import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
-import ProjectSingle from "@/components/particles/projects/ProjectSingle";
-import { Project } from "@/types/types";
+
+// App
+import { useProjects } from "@/context/ProjectsContext";
 import { cdnBaseUrl } from "@/config";
+import ProjectSingle from "@/components/particles/projects/ProjectSingle";
 
 const HappyNinja = `${cdnBaseUrl}/happy-ninja.webp`;
+
+const itemVariant = {
+  hidden: { opacity: 0, scale: 0.9 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: {
+      duration: 0.6,
+      ease: "easeOut",
+    },
+  },
+};
 
 const ProjectsGrid: FC = () => {
   const { projects } = useProjects();
@@ -31,12 +48,18 @@ const ProjectsGrid: FC = () => {
         />
       </div>
 
-      <div className="sm:gap-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 mt-6 mb-5">
-        {Object.entries(projects).map(
-          ([projectId, projectData]: [string, Project]) => (
+      <div className="gap-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+        {Object.entries(projects).map(([projectId, projectData]) => (
+          <motion.div
+            layout
+            key={projectId}
+            variants={itemVariant}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+          >
             <Link
               href={`/projects/${projectId}`}
-              key={projectId}
               className="mb-10 sm:mb-0 last:mb-0"
             >
               <ProjectSingle
@@ -45,8 +68,8 @@ const ProjectsGrid: FC = () => {
                 image={projectData.img}
               />
             </Link>
-          )
-        )}
+          </motion.div>
+        ))}
       </div>
     </section>
   );

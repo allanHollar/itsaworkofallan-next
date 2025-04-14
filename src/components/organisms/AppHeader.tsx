@@ -1,7 +1,14 @@
-import { Link as ScrollLink } from "react-scroll";
-import { usePathname } from "next/navigation";
+// Core & Framework
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
+import { TextFade } from "@/components/atoms/TextAnimation";
+
+// Third-party Libraries
+import { motion } from "framer-motion";
+import { Link as ScrollLink } from "react-scroll";
+
+// App Config
 import { cdnBaseUrl } from "@/config";
 
 interface Link {
@@ -53,34 +60,45 @@ const AppHeader: React.FC = () => {
         <div className={`${logoAlignment} z-10 flex items-center py-4`}>
           <div className="flex items-center space-x-4">
             <Link href="/">
-              <Image
-                src={`${cdnBaseUrl}/ar-brand.svg`}
-                alt="Logo"
-                width={50}
-                height={42}
-                priority
-              />
+              <motion.div
+                layout
+                initial={{ rotateY: 0, opacity: 0 }}
+                whileInView={{ rotateY: 720, opacity: 1 }}
+                transition={{ duration: 1.2, ease: "easeInOut" }}
+                viewport={{ once: true, amount: 0.5 }}
+                style={{ perspective: 1000 }}
+              >
+                <Image
+                  src={`${cdnBaseUrl}/ar-brand.svg`}
+                  alt="Logo"
+                  width={50}
+                  height={42}
+                  priority
+                />
+              </motion.div>
             </Link>
           </div>
 
-          <div
-            className={`${shouldShowNavLinks} flex gap-6 items-center font-semibold text-l`}
-          >
-            {links.map((link) => (
-              <ScrollLink
-                to={link.url}
-                smooth={true}
-                duration={500}
-                offset={-74}
-                className="group cursor-pointer"
-                key={link.id}
-              >
-                <span className="border-[#F0BB78] group-hover:border-[#efd5b4] border-b-2 font-semibold text-[#5a5a5a] text-lg group-hover:text-[#c76c3f] transition-all">
-                  {link.title}
-                </span>
-              </ScrollLink>
-            ))}
-          </div>
+          <TextFade direction="up">
+            <div
+              className={`${shouldShowNavLinks} flex gap-6 items-center font-semibold text-l`}
+            >
+              {links.map((link) => (
+                <ScrollLink
+                  to={link.url}
+                  smooth={true}
+                  duration={500}
+                  offset={-74}
+                  className="group cursor-pointer"
+                  key={link.id}
+                >
+                  <span className="border-[#F0BB78] group-hover:border-[#efd5b4] border-b-2 font-semibold text-[#5a5a5a] text-lg group-hover:text-[#c76c3f] transition-all">
+                    {link.title}
+                  </span>
+                </ScrollLink>
+              ))}
+            </div>
+          </TextFade>
         </div>
       </div>
     </div>
