@@ -30,7 +30,10 @@ const ProjectGallery: FC<ProjectGalleryProps> = ({ projectId }) => {
       <div className="sm:gap-10 grid grid-cols-1 sm:grid-cols-3 mt-12">
         {projectData.projectImages.map((project: ProjectImages) => {
           return (
-            <div className="mb-10 sm:mb-0" key={project.id}>
+            <div
+              className="flex justify-center items-center mb-10 sm:mb-0"
+              key={project.id}
+            >
               <motion.div
                 key={projectId}
                 variants={itemVariant}
