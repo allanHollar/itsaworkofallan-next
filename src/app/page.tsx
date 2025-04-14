@@ -27,7 +27,6 @@ const HomePage: FC = () => {
       <HorizontalRule />
 
       <ProjectsGrid />
-      <HorizontalRule />
     </>
   );
 };
