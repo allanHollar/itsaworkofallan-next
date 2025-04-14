@@ -7,7 +7,6 @@ import { PageHeading, BlurIn } from "@/components/atoms/TextAnimation";
 
 // Styles
 import "./fireflies.sass";
-import { div } from "framer-motion/client";
 
 const AppBanner = () => {
   const fireflies = useMemo(
