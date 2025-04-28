@@ -7,33 +7,40 @@
 @import "../styles/stars";
 
 .bg-sky {
-  background-image: url("/images/clouds-bg.webp");
   background-size: 100% 350px;
   background-position: top;
   background-repeat: no-repeat;
 }
 
-.bg-foreground {
-  background-image: url("/images/foreground.webp");
+.bg-foreground-mobile {
   background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center 100px;
+}
+
+.bg-foreground {
+  background-size: cover;
+  background-repeat: no-repeat;
   background-position: center 150px;
+}
+
+/* .bg-clouds {
+  background-size: 100%;
+  background-position: 0 -100px;
   background-repeat: no-repeat;
 }
 
-.bg-clouds {
-  background-image: url("/images/clouds.webp");
+.bg-clouds-mobile {
   background-size: 100%;
   background-position: top;
   background-repeat: no-repeat;
-}
+} */
 
 .bg-moon {
   background-image: url("/images/moon.webp");
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
-  width: 320px;
-  height: 320px;
 }
 
 body {

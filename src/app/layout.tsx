@@ -1,5 +1,6 @@
 // Core
 import Script from "next/script";
+import type { Viewport } from "next";
 import { Happy_Monkey, Lato } from "next/font/google";
 import { cdnBaseUrl } from "@/config";
 
@@ -24,7 +25,6 @@ export const metadata = {
     "Portfolio",
   ],
   authors: [{ name: "Allan Ritumban" }],
-
   openGraph: {
     title: "It's a Work of Allan",
     description:
@@ -66,6 +66,11 @@ export const metadata = {
       },
     ],
   },
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1.0,
 };
 
 export const happyMonkey = Happy_Monkey({

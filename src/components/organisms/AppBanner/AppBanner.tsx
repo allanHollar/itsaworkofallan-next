@@ -40,11 +40,11 @@ const AppBanner = () => {
       <motion.section
         id="hero-banner"
         transition={{ ease: "easeInOut" }}
-        className="relative flex sm:flex-row flex-col justify-center sm:justify-between items-center bg-sky mx-auto max-w-[1600px] h-[850px] sm:h-[800px] overflow-hidden"
+        className="relative flex sm:flex-row flex-col justify-center sm:justify-between items-center bg-sky mx-auto max-w-[1600px] h-[600px] sm:h-[800px] overflow-hidden"
       >
         <Stars />
         <motion.div
-          className="top-0 left-[54%] absolute bg-moon"
+          className="top-0 left-[54%] absolute bg-moon w-[160px] sm:w-[320px] h-[160px] sm:h-[320px]"
           initial={{ x: -300, y: "55%" }} // Start bottom-left of the anchor
           animate={{ x: 0, y: 0 }} // Rise diagonally into position
           transition={{
@@ -54,13 +54,13 @@ const AppBanner = () => {
 
         <motion.div
           animate={controls}
-          className="top-0 left-0 z-0 absolute flex w-full h-[832px]"
+          className="top-0 sm:top-0 left-0 z-0 absolute flex w-full h-[832px]"
         >
-          <div className="bg-clouds w-full h-full shrink-0" />
-          <div className="bg-clouds w-full h-full shrink-0" />
+          <div className="bg-clouds-mobile bg-size-[100%] sm:!bg-clouds sm:bg-[position:0_0] bg-no-repeat bg-top w-full h-full shrink-0" />
+          <div className="bg-clouds-mobile bg-size-[100%] sm:!bg-clouds sm:bg-[position:0_0] bg-no-repeat bg-top w-full h-full shrink-0" />
         </motion.div>
 
-        <div className="bottom-0 z-10 absolute bg-foreground w-full h-full" />
+        <div className="bottom-0 z-10 absolute bg-foreground-mobile sm:!bg-foreground w-full h-full" />
 
         {/* Banner Text */}
         <div className="z-20 flex flex-col justify-center items-center w-full">
