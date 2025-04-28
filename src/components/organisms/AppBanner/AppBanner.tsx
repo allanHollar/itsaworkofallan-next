@@ -5,6 +5,7 @@ import { useMemo, useEffect } from "react";
 import { motion, useAnimation } from "framer-motion";
 
 // Components
+import Stars from "@/components/particles/Stars";
 import { PageHeading, BlurIn } from "@/components/atoms/TextAnimation";
 
 // Styles
@@ -14,7 +15,7 @@ const AppBanner = () => {
   const fireflies = useMemo(
     () =>
       Array.from({ length: 25 }, (_, i) => (
-        <span key={i} className="firefly" />
+        <span key={i} className="z-10 firefly" />
       )),
     []
   );
@@ -41,6 +42,16 @@ const AppBanner = () => {
         transition={{ ease: "easeInOut" }}
         className="relative flex sm:flex-row flex-col justify-center sm:justify-between items-center bg-sky mx-auto max-w-[2048px] h-[850px] sm:h-[800px] overflow-hidden"
       >
+        <Stars />
+        <motion.div
+          className="top-0 left-[54%] absolute bg-moon"
+          initial={{ x: -300, y: "55%" }} // Start bottom-left of the anchor
+          animate={{ x: 0, y: 0 }} // Rise diagonally into position
+          transition={{
+            duration: 10,
+          }}
+        />
+
         <motion.div
           animate={controls}
           className="top-0 left-0 z-0 absolute flex w-full h-[832px]"

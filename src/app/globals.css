@@ -4,10 +4,11 @@
 
 @import "../styles/social";
 @import "../styles/sakura";
+@import "../styles/stars";
 
 .bg-sky {
   background-image: url("/images/clouds-bg.webp");
-  background-size: 100%;
+  background-size: 100% 350px;
   background-position: top;
   background-repeat: no-repeat;
 }
@@ -24,6 +25,15 @@
   background-size: 100%;
   background-position: top;
   background-repeat: no-repeat;
+}
+
+.bg-moon {
+  background-image: url("/images/moon.webp");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 320px;
+  height: 320px;
 }
 
 body {
