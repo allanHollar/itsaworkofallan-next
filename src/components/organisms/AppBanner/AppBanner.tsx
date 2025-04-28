@@ -36,11 +36,11 @@ const AppBanner = () => {
   }, [controls]);
 
   return (
-    <div className="bg-[#faf4eb] w-full">
+    <div className="bg-[#f5e8d7] w-full">
       <motion.section
         id="hero-banner"
         transition={{ ease: "easeInOut" }}
-        className="relative flex sm:flex-row flex-col justify-center sm:justify-between items-center bg-sky mx-auto max-w-[2048px] h-[850px] sm:h-[800px] overflow-hidden"
+        className="relative flex sm:flex-row flex-col justify-center sm:justify-between items-center bg-sky mx-auto max-w-[1600px] h-[850px] sm:h-[800px] overflow-hidden"
       >
         <Stars />
         <motion.div
