@@ -76,7 +76,7 @@ export default function Stars({
         "--parallax-depth": depth,
         opacity: "0.8",
         willChange: "transform, opacity",
-        animation: `twinkle ${2 + Math.random() * 3}s infinite ease-in-out`,
+        animation: `twinkle ${0.8 + Math.random() * 1.2}s infinite ease-in-out`,
       });
 
       star.classList.add(className);
