@@ -5,6 +5,27 @@
 @import "../styles/social";
 @import "../styles/sakura";
 
+.bg-sky {
+  background-image: url("/images/clouds-bg.webp");
+  background-size: 100%;
+  background-position: top;
+  background-repeat: no-repeat;
+}
+
+.bg-foreground {
+  background-image: url("/images/foreground.webp");
+  background-size: cover;
+  background-position: center 150px;
+  background-repeat: no-repeat;
+}
+
+.bg-clouds {
+  background-image: url("/images/clouds.webp");
+  background-size: 100%;
+  background-position: top;
+  background-repeat: no-repeat;
+}
+
 body {
   font-family: "Lato", sans-serif;
   font-optical-sizing: auto;
@@ -1425,10 +1446,6 @@ select {
 .bg-\[\#f5e8d7\] {
   --tw-bg-opacity: 1;
   background-color: rgb(245 232 215 / var(--tw-bg-opacity, 1));
-}
-
-.bg-footer-image {
-  background-image: url("https://ddxnp40hswui0.cloudfront.net/footer.webp");
 }
 
 .bg-hero-image-mobile {
