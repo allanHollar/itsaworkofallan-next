@@ -41,6 +41,7 @@ const AppBanner = () => {
           });
         } catch (error) {
           // Animation was interrupted (like navigation), that's ok.
+          console.error(error);
           break;
         }
       }

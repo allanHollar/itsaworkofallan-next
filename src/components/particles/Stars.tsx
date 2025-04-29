@@ -88,8 +88,6 @@ export default function Stars({
       const isLarge = Math.random() > 0.5;
       const startX = Math.random() * 100;
       const startY = Math.random() * 50;
-      const xMove = Math.random() > 0.5 ? "150vw" : "-150vw";
-      const yMove = "100vh";
 
       const size = isLarge ? "4px" : "2px";
       const glow = isLarge
