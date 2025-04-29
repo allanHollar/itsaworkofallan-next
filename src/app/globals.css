@@ -12,29 +12,11 @@
   background-repeat: no-repeat;
 }
 
-.bg-foreground-mobile {
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center 100px;
-}
-
 .bg-foreground {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center 150px;
 }
-
-/* .bg-clouds {
-  background-size: 100%;
-  background-position: 0 -100px;
-  background-repeat: no-repeat;
-}
-
-.bg-clouds-mobile {
-  background-size: 100%;
-  background-position: top;
-  background-repeat: no-repeat;
-} */
 
 .bg-moon {
   background-image: url("/images/moon.webp");

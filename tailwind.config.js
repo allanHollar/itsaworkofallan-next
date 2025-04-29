@@ -12,14 +12,13 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: {
-        sky: "url('/images/clouds-bg.webp')",
-        clouds: "url('/images/clouds.webp')",
-        "clouds-mobile": "url('/images/clouds-mobile.webp')",
-        "hero-image": `url('${cdnBaseUrl}/hero.webp')`,
-        "hero-image-mobile": `url('${cdnBaseUrl}/hero-mobile.webp')`,
+        sky: `url('${cdnBaseUrl}/clouds-bg.webp')`,
+        clouds: `url('${cdnBaseUrl}/clouds.webp')`,
+        moon: `url('${cdnBaseUrl}/moon.webp')`,
+        "clouds-mobile": `url('${cdnBaseUrl}/clouds-mobile.webp')`,
+        foreground: `url('${cdnBaseUrl}/foreground.webp')`,
+        "foreground-mobile": `url('${cdnBaseUrl}/foreground-mobile.webp')`,
         "footer-image": `url('${cdnBaseUrl}/footer.webp')`,
-        "foreground-mobile": "url('/images/foreground-mobile.webp')",
-        foreground: "url('/images/foreground.webp')",
       },
       boxShadow: {
         "3xl": "0 35px 60px -15px rgba(0, 0, 0, 0.3)",

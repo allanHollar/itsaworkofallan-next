@@ -23,24 +23,27 @@ const AppBanner = () => {
   const controls = useAnimation();
 
   useEffect(() => {
-    const loop = async () => {
+    const timeout = setTimeout(async () => {
+      await controls.set({ x: "-100%" });
+
       while (true) {
-        controls.set({ x: "-100%" }); // ✅ start offscreen left
         await controls.start({
-          x: "0%", // ✅ slide to original position (rightward)
-          transition: { duration: 30, ease: "linear" },
+          x: "0%",
+          transition: { duration: 60, ease: "linear" },
         });
+        await controls.set({ x: "-100%" }); // reset instantly
       }
-    };
-    loop();
+    }, 300);
+
+    return () => clearTimeout(timeout);
   }, [controls]);
 
   return (
-    <div className="bg-[#f5e8d7] w-full">
+    <div className="bg-[#f5e8d7] w-full h-[550px] sm:!h-[800px]">
       <motion.section
         id="hero-banner"
         transition={{ ease: "easeInOut" }}
-        className="relative flex sm:flex-row flex-col justify-center sm:justify-between items-center bg-sky mx-auto max-w-[1600px] h-[600px] sm:h-[800px] overflow-hidden"
+        className="relative flex sm:flex-row flex-col justify-center sm:justify-between items-center bg-sky mx-auto max-w-[1600px] h-[550px] sm:!h-[800px] overflow-hidden"
       >
         <Stars />
         <motion.div
@@ -54,13 +57,13 @@ const AppBanner = () => {
 
         <motion.div
           animate={controls}
-          className="top-0 sm:top-0 left-0 z-0 absolute flex w-full h-[832px]"
+          className="top-0 sm:top-0 left-0 z-0 absolute flex w-full h-[550px]"
         >
-          <div className="bg-clouds-mobile bg-size-[100%] sm:!bg-clouds sm:bg-[position:0_0] bg-no-repeat bg-top w-full h-full shrink-0" />
-          <div className="bg-clouds-mobile bg-size-[100%] sm:!bg-clouds sm:bg-[position:0_0] bg-no-repeat bg-top w-full h-full shrink-0" />
+          <div className="bg-clouds-mobile bg-size-[100%] sm:!bg-clouds bg-no-repeat bg-top w-full h-[550px] shrink-0" />
+          <div className="bg-clouds-mobile bg-size-[100%] sm:!bg-clouds bg-no-repeat bg-top w-full h-[550px] shrink-0" />
         </motion.div>
 
-        <div className="bottom-0 z-10 absolute bg-foreground-mobile sm:!bg-foreground w-full h-full" />
+        <div className="bottom-0 z-10 absolute bg-foreground-mobile bg-size-[100%] sm:!bg-[position:center_150px] sm:!bg-foreground sm:bg-cover bg-no-repeat bg-bottom w-full h-[832px]" />
 
         {/* Banner Text */}
         <div className="z-20 flex flex-col justify-center items-center w-full">

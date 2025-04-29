@@ -56,13 +56,17 @@ export const metadata = {
       "Senior Frontend Engineer & UX/UI Enthusiast – Portfolio of Allan Ritumban",
     images: ["https://itsaworkofallan.me/og-image.jpg"],
   },
-
   other: {
     "link:preload": [
       {
         rel: "preload",
         as: "image",
-        href: "/images/hero-bg.jpg",
+        href: `${cdnBaseUrl}/foreground.webp`,
+      },
+      {
+        rel: "preload",
+        as: "image",
+        href: `${cdnBaseUrl}/clouds-bg.webp`,
       },
     ],
   },
