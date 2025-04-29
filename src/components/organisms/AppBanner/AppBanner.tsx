@@ -1,17 +1,14 @@
 "use client";
 
-// Packages
 import { useMemo, useEffect } from "react";
 import { motion, useAnimation } from "framer-motion";
-
-// Components
 import Stars from "@/components/particles/Stars";
 import { PageHeading, BlurIn } from "@/components/atoms/TextAnimation";
-
-// Styles
 import "./fireflies.sass";
 
 const AppBanner = () => {
+  const controls = useAnimation();
+
   const fireflies = useMemo(
     () =>
       Array.from({ length: 25 }, (_, i) => (
@@ -20,22 +17,41 @@ const AppBanner = () => {
     []
   );
 
-  const controls = useAnimation();
-
   useEffect(() => {
-    const timeout = setTimeout(async () => {
-      await controls.set({ x: "-100%" });
+    let isActive = true;
 
-      while (true) {
-        await controls.start({
-          x: "0%",
-          transition: { duration: 60, ease: "linear" },
-        });
-        await controls.set({ x: "-100%" }); // reset instantly
+    const run = async () => {
+      // Wait 2 frames for safe DOM mount
+      await new Promise((resolve) =>
+        requestAnimationFrame(() => requestAnimationFrame(resolve))
+      );
+
+      while (isActive) {
+        try {
+          await controls.start({
+            x: "0%",
+            transition: { duration: 60, ease: "linear" },
+          });
+
+          if (!isActive) break;
+
+          await controls.start({
+            x: "-100%",
+            transition: { duration: 0 },
+          });
+        } catch (error) {
+          // Animation was interrupted (like navigation), that's ok.
+          break;
+        }
       }
-    }, 300);
+    };
 
-    return () => clearTimeout(timeout);
+    run();
+
+    return () => {
+      isActive = false;
+      controls.stop(); // ✅ stop any pending animations cleanly
+    };
   }, [controls]);
 
   return (
@@ -56,6 +72,7 @@ const AppBanner = () => {
         />
 
         <motion.div
+          initial={{ x: "-100%" }}
           animate={controls}
           className="top-0 sm:top-0 left-0 z-0 absolute flex w-full h-[550px]"
         >

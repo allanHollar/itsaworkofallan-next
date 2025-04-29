@@ -117,7 +117,6 @@ export default function RootLayout({
         `,
           }}
         ></Script>
-        <link rel="preload" as="image" href={`${cdnBaseUrl}/hero-bg.jpg`} />
         <link rel="preload" as="image" href={`${cdnBaseUrl}/footer.webp`} />
       </head>
       <body>
