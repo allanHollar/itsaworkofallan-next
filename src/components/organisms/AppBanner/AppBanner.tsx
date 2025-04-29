@@ -50,7 +50,7 @@ const AppBanner = () => {
 
     return () => {
       isActive = false;
-      controls.stop(); // ✅ stop any pending animations cleanly
+      controls.stop(); // stop any pending animations cleanly
     };
   }, [controls]);
 
