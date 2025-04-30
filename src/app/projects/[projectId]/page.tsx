@@ -29,6 +29,7 @@ const ProjectSingle: FC<ProjectSingleProps> = ({ params }) => {
       layout
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
+      className="min-h-[991px]"
       transition={{
         ease: "easeInOut",
         duration: 0.6,
