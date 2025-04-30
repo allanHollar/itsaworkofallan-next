@@ -19,6 +19,7 @@ module.exports = {
         foreground: `url('${cdnBaseUrl}/foreground.webp')`,
         "foreground-me-gate": `url('${cdnBaseUrl}/foreground-me-gate.webp')`,
         "foreground-mobile": `url('${cdnBaseUrl}/foreground-mobile.webp')`,
+        "foreground-me-gate-mobile": `url('${cdnBaseUrl}/foreground-me-gate-mobile.webp')`,
         "footer-image": `url('${cdnBaseUrl}/footer.webp')`,
       },
       boxShadow: {

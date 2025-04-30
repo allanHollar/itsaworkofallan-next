@@ -108,7 +108,7 @@ const AppBanner = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 2 }}
-          className="bottom-40 left-0 z-11 absolute w-full h-[500px] pointer-events-none"
+          className="bottom-20 sm:bottom-40 left-0 z-12 absolute w-full h-[500px] pointer-events-none"
         >
           {cityLights.map((light, i) => (
             <div
@@ -123,18 +123,15 @@ const AppBanner = () => {
           ))}
         </motion.div>
 
-        {/* Glow Layer Above City Lights */}
-        <div className="bottom-0 left-0 absolute bg-gradient-to-t from-[#1a1a1a88] to-transparent opacity-40 blur-sm w-full h-1/3 pointer-events-none" />
-
         {/* Gate Foreground */}
-        <div className="bottom-0 z-12 absolute bg-foreground-mobile bg-size-[100%] sm:!bg-[position:center_150px] sm:!bg-foreground-me-gate sm:bg-cover bg-no-repeat bg-bottom w-full h-[832px]" />
+        <div className="bottom-0 z-12 absolute bg-foreground-me-gate-mobile bg-size-[100%] sm:!bg-[position:center_150px] sm:!bg-foreground-me-gate sm:bg-cover bg-no-repeat bg-bottom w-full h-[832px]" />
 
         {/* Text Content */}
         <div className="z-20 flex flex-col justify-center items-center w-full">
           <h1 className="hidden">Hello, I'm Allan</h1>
           <PageHeading
             text="Hello, I'm Allan"
-            cssStyles="drop-shadow-md mt-[-30px] sm:mt-[-100px] text-5xl text-center text-white md:text-7xl happy-monkey-regular"
+            cssStyles="drop-shadow-md mt-[-50px] sm:mt-[-100px] text-5xl text-center text-white md:text-7xl happy-monkey-regular"
           />
           <BlurIn cssStyles="sm:mt-[-25px] text-2xl text-center text-white sm:text-4xl dark:text-gray-200 leading-normal happy-monkey-regular">
             Senior Frontend Engineer & UX/UI Enthusiast!
