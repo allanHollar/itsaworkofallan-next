@@ -34,7 +34,7 @@ const AppBanner = () => {
 
   const fireflies = useMemo(
     () =>
-      Array.from({ length: 20 }, (_, i) => (
+      Array.from({ length: 50 }, (_, i) => (
         <span key={i} className="z-10 firefly" />
       )),
     []
