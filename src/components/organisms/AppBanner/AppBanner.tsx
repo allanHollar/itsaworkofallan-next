@@ -1,17 +1,40 @@
 "use client";
 
-import { useMemo, useEffect } from "react";
+import { useMemo, useEffect, useState } from "react";
 import { motion, useAnimation } from "framer-motion";
 import Stars from "@/components/particles/Stars";
 import { PageHeading, BlurIn } from "@/components/atoms/TextAnimation";
 import "./fireflies.sass";
 
+type LightColor = "yellow" | "red" | "white";
+
+interface CityLight {
+  bottom: number;
+  left: number;
+  delay: number;
+  color: LightColor;
+}
+
 const AppBanner = () => {
+  const [cityLights, setCityLights] = useState<CityLight[]>([]);
   const controls = useAnimation();
+
+  useEffect(() => {
+    const colors: LightColor[] = ["yellow", "red", "white"];
+
+    const lights = Array.from({ length: 75 }).map(() => ({
+      bottom: Math.random() * 120,
+      left: Math.random() * 100,
+      delay: Math.random() * 3,
+      color: colors[Math.floor(Math.random() * colors.length)],
+    }));
+
+    setCityLights(lights);
+  }, []);
 
   const fireflies = useMemo(
     () =>
-      Array.from({ length: 25 }, (_, i) => (
+      Array.from({ length: 20 }, (_, i) => (
         <span key={i} className="z-10 firefly" />
       )),
     []
@@ -21,7 +44,6 @@ const AppBanner = () => {
     let isActive = true;
 
     const run = async () => {
-      // Wait 2 frames for safe DOM mount
       await new Promise((resolve) =>
         requestAnimationFrame(() => requestAnimationFrame(resolve))
       );
@@ -40,7 +62,6 @@ const AppBanner = () => {
             transition: { duration: 0 },
           });
         } catch (error) {
-          // Animation was interrupted (like navigation), that's ok.
           console.error(error);
           break;
         }
@@ -51,7 +72,7 @@ const AppBanner = () => {
 
     return () => {
       isActive = false;
-      controls.stop(); // stop any pending animations cleanly
+      controls.stop();
     };
   }, [controls]);
 
@@ -65,11 +86,9 @@ const AppBanner = () => {
         <Stars />
         <motion.div
           className="top-0 left-[54%] absolute bg-moon w-[160px] sm:w-[320px] h-[160px] sm:h-[320px]"
-          initial={{ x: -300, y: "55%" }} // Start bottom-left of the anchor
-          animate={{ x: 0, y: 0 }} // Rise diagonally into position
-          transition={{
-            duration: 10,
-          }}
+          initial={{ x: -300, y: "55%" }}
+          animate={{ x: 0, y: 0 }}
+          transition={{ duration: 10 }}
         />
 
         <motion.div
@@ -81,9 +100,36 @@ const AppBanner = () => {
           <div className="bg-clouds-mobile bg-size-[100%] sm:!bg-clouds bg-no-repeat bg-top w-full h-[550px] shrink-0" />
         </motion.div>
 
+        {/* Main Foreground */}
         <div className="bottom-0 z-10 absolute bg-foreground-mobile bg-size-[100%] sm:!bg-[position:center_150px] sm:!bg-foreground sm:bg-cover bg-no-repeat bg-bottom w-full h-[832px]" />
 
-        {/* Banner Text */}
+        {/* Animated Lights */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 2 }}
+          className="bottom-40 left-0 z-11 absolute w-full h-[500px] pointer-events-none"
+        >
+          {cityLights.map((light, i) => (
+            <div
+              key={`light-${i}`}
+              className={`city-light city-light-${light.color}`}
+              style={{
+                bottom: `${light.bottom}px`,
+                left: `${light.left}%`,
+                animationDelay: `${light.delay}s`,
+              }}
+            />
+          ))}
+        </motion.div>
+
+        {/* Glow Layer Above City Lights */}
+        <div className="bottom-0 left-0 absolute bg-gradient-to-t from-[#1a1a1a88] to-transparent opacity-40 blur-sm w-full h-1/3 pointer-events-none" />
+
+        {/* Gate Foreground */}
+        <div className="bottom-0 z-12 absolute bg-foreground-mobile bg-size-[100%] sm:!bg-[position:center_150px] sm:!bg-foreground-me-gate sm:bg-cover bg-no-repeat bg-bottom w-full h-[832px]" />
+
+        {/* Text Content */}
         <div className="z-20 flex flex-col justify-center items-center w-full">
           <h1 className="hidden">Hello, I'm Allan</h1>
           <PageHeading

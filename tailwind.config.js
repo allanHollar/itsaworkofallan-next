@@ -17,6 +17,7 @@ module.exports = {
         moon: `url('${cdnBaseUrl}/moon.webp')`,
         "clouds-mobile": `url('${cdnBaseUrl}/clouds-mobile.webp')`,
         foreground: `url('${cdnBaseUrl}/foreground.webp')`,
+        "foreground-me-gate": `url('${cdnBaseUrl}/foreground-me-gate.webp')`,
         "foreground-mobile": `url('${cdnBaseUrl}/foreground-mobile.webp')`,
         "footer-image": `url('${cdnBaseUrl}/footer.webp')`,
       },
