@@ -14,6 +14,8 @@ module.exports = {
       backgroundImage: {
         sky: `url('${cdnBaseUrl}/clouds-bg.webp')`,
         clouds: `url('${cdnBaseUrl}/clouds.webp')`,
+        "clouds-mid": `url('${cdnBaseUrl}/mid-clouds.webp')`,
+        "clouds-mid-mobile": `url('${cdnBaseUrl}/mid-clouds-mobile.webp')`,
         moon: `url('${cdnBaseUrl}/moon.webp')`,
         "clouds-mobile": `url('${cdnBaseUrl}/clouds-mobile.webp')`,
         foreground: `url('${cdnBaseUrl}/foreground.webp')`,

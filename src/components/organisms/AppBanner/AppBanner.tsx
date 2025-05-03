@@ -4,6 +4,8 @@ import { useMemo, useEffect, useState } from "react";
 import { motion, useAnimation } from "framer-motion";
 import Stars from "@/components/particles/Stars";
 import { PageHeading, BlurIn } from "@/components/atoms/TextAnimation";
+import Image from "next/image";
+import { cdnBaseUrl } from "@/config";
 import "./fireflies.sass";
 
 type LightColor = "yellow" | "red" | "white";
@@ -18,6 +20,7 @@ interface CityLight {
 const AppBanner = () => {
   const [cityLights, setCityLights] = useState<CityLight[]>([]);
   const controls = useAnimation();
+  const midCloudControls = useAnimation();
 
   useEffect(() => {
     const colors: LightColor[] = ["yellow", "red", "white"];
@@ -76,8 +79,44 @@ const AppBanner = () => {
     };
   }, [controls]);
 
+  useEffect(() => {
+    let isActive = true;
+
+    const run = async () => {
+      await new Promise((resolve) =>
+        requestAnimationFrame(() => requestAnimationFrame(resolve))
+      );
+
+      while (isActive) {
+        try {
+          await midCloudControls.start({
+            x: "0%",
+            transition: { duration: 45, ease: "linear" },
+          });
+
+          if (!isActive) break;
+
+          await midCloudControls.start({
+            x: "-100%",
+            transition: { duration: 0 },
+          });
+        } catch (error) {
+          console.error(error);
+          break;
+        }
+      }
+    };
+
+    run();
+
+    return () => {
+      isActive = false;
+      midCloudControls.stop();
+    };
+  }, [midCloudControls]);
+
   return (
-    <div className="bg-[#f5e8d7] w-full h-[550px] sm:!h-[800px]">
+    <div className="relative bg-[#f5e8d7] w-full h-[550px] sm:!h-[800px]">
       <motion.section
         id="hero-banner"
         transition={{ ease: "easeInOut" }}
@@ -103,6 +142,22 @@ const AppBanner = () => {
         {/* Main Foreground */}
         <div className="bottom-0 z-10 absolute bg-foreground-mobile bg-size-[100%] sm:!bg-[position:center_150px] sm:!bg-foreground sm:bg-cover bg-no-repeat bg-bottom w-full h-[832px]" />
 
+        {/* Mid Clouds */}
+        <motion.div
+          initial={{ x: "-100%" }}
+          animate={midCloudControls}
+          transition={{
+            duration: 45,
+            ease: "linear",
+            repeat: Infinity,
+            repeatType: "loop",
+          }}
+          className="bottom-[-65px] sm:bottom-[10px] left-0 z-12 absolute flex w-full h-[350px]"
+        >
+          <div className="bg-clouds-mid-mobile bg-size-[100%] sm:!bg-clouds-mid bg-repeat-x w-full h-full shrink-0" />
+          <div className="bg-clouds-mid-mobile bg-size-[100%] sm:!bg-clouds-mid bg-repeat-x w-full h-full shrink-0" />
+        </motion.div>
+
         {/* Animated Lights */}
         <motion.div
           initial={{ opacity: 0 }}
@@ -127,17 +182,32 @@ const AppBanner = () => {
         <div className="bottom-0 z-12 absolute bg-foreground-me-gate-mobile bg-size-[100%] sm:!bg-[position:center_150px] sm:!bg-foreground-me-gate sm:bg-cover bg-no-repeat bg-bottom w-full h-[832px]" />
 
         {/* Text Content */}
-        <div className="z-20 flex flex-col justify-center items-center w-full">
+        <div className="z-20 flex flex-col justify-center items-center mt-[-100px] w-full">
           <h1 className="hidden">Hello, I'm Allan</h1>
           <PageHeading
             text="Hello, I'm Allan"
             cssStyles="drop-shadow-md mt-[-50px] sm:mt-[-100px] text-5xl text-center text-white md:text-7xl happy-monkey-regular"
           />
-          <BlurIn cssStyles="sm:mt-[-25px] text-2xl text-center text-white sm:text-4xl dark:text-gray-200 leading-normal happy-monkey-regular">
+          <BlurIn cssStyles="sm:mt-[-25px] text-xl text-center text-white sm:text-4xl dark:text-gray-200 leading-normal happy-monkey-regular">
             Senior Frontend Engineer & UX/UI Enthusiast!
           </BlurIn>
         </div>
 
+        <Image
+          src={`${cdnBaseUrl}/bush_sway.svg`}
+          width={1000}
+          height={600}
+          alt="bush swaying"
+          className="bottom-[-100px] left-[-50%] z-12 absolute"
+        />
+
+        <Image
+          src={`${cdnBaseUrl}/bush_sway.svg`}
+          width={1000}
+          height={600}
+          alt="bush swaying"
+          className="right-[-50%] bottom-[-100px] z-12 absolute opacity-95"
+        />
         {/* Fireflies */}
         {fireflies}
       </motion.section>
