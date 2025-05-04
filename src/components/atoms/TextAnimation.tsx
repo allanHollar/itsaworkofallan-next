@@ -76,8 +76,8 @@ export function TextFade({
   return (
     <motion.div
       ref={ref}
-      initial="hidden"
-      animate={isInView ? "show" : ""}
+      initial={{ opacity: 0 }}
+      animate={isInView ? { opacity: 1 } : { opacity: 0 }}
       variants={{
         hidden: {},
         show: {
@@ -132,8 +132,8 @@ export function TextFadeFast({
   return (
     <motion.div
       ref={ref}
-      initial="hidden"
-      animate={isInView ? "show" : ""}
+      initial={{ opacity: 0 }}
+      animate={isInView ? { opacity: 1 } : { opacity: 0 }}
       variants={{
         hidden: {},
         show: {

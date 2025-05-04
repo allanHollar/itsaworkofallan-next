@@ -53,7 +53,8 @@ const ProjectsGrid: FC = () => {
           <motion.div
             key={projectId}
             variants={itemVariant}
-            initial="hidden"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
             whileInView="visible"
             viewport={{ once: true, amount: 0.3 }}
           >

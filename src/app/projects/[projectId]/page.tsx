@@ -1,7 +1,6 @@
 "use client";
 // React & Framer Motion
 import { FC, use } from "react";
-import { motion } from "framer-motion";
 
 // Project Components
 import ProjectHeader from "@/components/particles/projects/ProjectHeader";
@@ -25,23 +24,13 @@ const ProjectSingle: FC<ProjectSingleProps> = ({ params }) => {
   }
 
   return (
-    <motion.div
-      layout
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      className="min-h-[991px]"
-      transition={{
-        ease: "easeInOut",
-        duration: 0.6,
-        delay: 0.15,
-      }}
-    >
+    <div className="min-h-[991px]">
       <SingleProjectProvider>
         <ProjectHeader projectId={projectId} />
         <ProjectGallery projectId={projectId} />
         <ProjectInfo projectId={projectId} />
       </SingleProjectProvider>
-    </motion.div>
+    </div>
   );
 };
 

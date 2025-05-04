@@ -9,18 +9,6 @@ interface ProjectGalleryProps {
   projectId: string;
 }
 
-const itemVariant = {
-  hidden: { opacity: 0, scale: 0.9 },
-  visible: {
-    opacity: 1,
-    scale: 1,
-    transition: {
-      duration: 0.6,
-      ease: "easeOut",
-    },
-  },
-};
-
 const ProjectGallery: FC<ProjectGalleryProps> = ({ projectId }) => {
   const { singleProjectData } = useSingleProject();
   const projectData = singleProjectData[projectId];
@@ -36,10 +24,8 @@ const ProjectGallery: FC<ProjectGalleryProps> = ({ projectId }) => {
             >
               <motion.div
                 key={projectId}
-                variants={itemVariant}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.3 }}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
               >
                 <Image
                   src={project.img}
