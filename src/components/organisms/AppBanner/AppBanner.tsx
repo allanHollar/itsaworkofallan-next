@@ -55,7 +55,7 @@ const AppBanner = () => {
         try {
           await controls.start({
             x: "0%",
-            transition: { duration: 60, ease: "linear" },
+            transition: { duration: 75, ease: "linear" },
           });
 
           if (!isActive) break;
@@ -91,7 +91,7 @@ const AppBanner = () => {
         try {
           await midCloudControls.start({
             x: "0%",
-            transition: { duration: 45, ease: "linear" },
+            transition: { duration: 40, ease: "linear" },
           });
 
           if (!isActive) break;
@@ -147,15 +147,14 @@ const AppBanner = () => {
           initial={{ x: "-100%" }}
           animate={midCloudControls}
           transition={{
-            duration: 45,
             ease: "linear",
             repeat: Infinity,
             repeatType: "loop",
           }}
-          className="bottom-[-65px] sm:bottom-[10px] left-0 z-12 absolute flex w-full h-[350px]"
+          className="bottom-[-80px] sm:bottom-[10px] left-0 z-12 absolute flex w-full h-[350px]"
         >
-          <div className="bg-clouds-mid-mobile bg-size-[100%] sm:!bg-clouds-mid bg-repeat-x w-full h-full shrink-0" />
-          <div className="bg-clouds-mid-mobile bg-size-[100%] sm:!bg-clouds-mid bg-repeat-x w-full h-full shrink-0" />
+          <div className="bg-clouds-mid-mobile bg-size-[100%] bg-size-cover sm:!bg-clouds-mid bg-repeat-x w-full h-full shrink-0" />
+          <div className="bg-clouds-mid-mobile bg-size-[100%] bg-size-cover sm:!bg-clouds-mid bg-repeat-x w-full h-full shrink-0" />
         </motion.div>
 
         {/* Animated Lights */}
