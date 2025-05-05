@@ -21,7 +21,7 @@ interface StarsProps {
 }
 
 export default function Stars({
-  number = 150,
+  number = 200,
   mediumNumber = 60,
   largeNumber = 20,
 }: StarsProps) {

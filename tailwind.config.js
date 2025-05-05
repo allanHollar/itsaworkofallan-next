@@ -12,7 +12,7 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: {
-        sky: `url('${cdnBaseUrl}/clouds-bg.webp')`,
+        sky: `url('${cdnBaseUrl}/stars-bg.webp')`,
         clouds: `url('${cdnBaseUrl}/clouds.webp')`,
         "clouds-mid": `url('${cdnBaseUrl}/mid-clouds.webp')`,
         "clouds-mid-mobile": `url('${cdnBaseUrl}/mid-clouds-mobile.webp')`,
