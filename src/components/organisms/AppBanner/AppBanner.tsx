@@ -94,7 +94,7 @@ const AppBanner = () => {
       while (isActive) {
         await backgroundClouds.start({
           x: "0%",
-          transition: { duration: 75, ease: "linear" },
+          transition: { duration: 65, ease: "linear" },
         });
 
         if (!isActive) break;
@@ -104,7 +104,6 @@ const AppBanner = () => {
           transition: { duration: 0 },
         });
 
-        // Wait a frame so the browser can breathe
         await new Promise((resolve) => setTimeout(resolve, 16));
       }
     };
@@ -129,7 +128,7 @@ const AppBanner = () => {
       while (isActive) {
         await midCloudControls.start({
           x: "0%",
-          transition: { duration: 40, ease: "linear" },
+          transition: { duration: 30, ease: "linear" },
         });
 
         if (!isActive) break;
@@ -139,7 +138,6 @@ const AppBanner = () => {
           transition: { duration: 0 },
         });
 
-        // Pause before looping again
         await new Promise((resolve) => setTimeout(resolve, 16));
       }
     };
@@ -171,7 +169,7 @@ const AppBanner = () => {
           <motion.div
             initial={{ x: "-100%" }}
             animate={backgroundClouds}
-            className="top-[40px] sm:top-0 left-0 z-0 absolute flex w-full h-[550px]"
+            className="top-0 sm:top-0 left-0 z-0 absolute flex w-full h-[550px]"
           >
             <div className="bg-clouds-mobile bg-size-[100%] sm:!bg-clouds bg-no-repeat bg-top w-full h-[550px] shrink-0" />
             <div className="bg-clouds-mobile bg-size-[100%] sm:!bg-clouds bg-no-repeat bg-top w-full h-[550px] shrink-0" />
@@ -189,7 +187,7 @@ const AppBanner = () => {
               repeat: Infinity,
               repeatType: "loop",
             }}
-            className="bottom-[-100px] sm:bottom-[10px] left-0 z-12 absolute flex w-full h-[350px]"
+            className="bottom-[-80px] sm:bottom-[10px] left-0 z-12 absolute flex w-full h-[350px]"
           >
             <div className="bg-clouds-mid-mobile bg-size-[100%] bg-size-cover sm:!bg-clouds-mid bg-repeat-x w-full h-full shrink-0" />
             <div className="bg-clouds-mid-mobile bg-size-[100%] bg-size-cover sm:!bg-clouds-mid bg-repeat-x w-full h-full shrink-0" />
