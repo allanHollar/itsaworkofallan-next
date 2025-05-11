@@ -61,12 +61,37 @@ export const metadata = {
       {
         rel: "preload",
         as: "image",
+        href: `${cdnBaseUrl}/stars-bg.webp`,
+      },
+      {
+        rel: "preload",
+        as: "image",
+        href: `${cdnBaseUrl}/clouds.webp`,
+      },
+      {
+        rel: "preload",
+        as: "image",
+        href: `${cdnBaseUrl}/mid-clouds.webp`,
+      },
+      {
+        rel: "preload",
+        as: "image",
+        href: `${cdnBaseUrl}/moon.webp`,
+      },
+      {
+        rel: "preload",
+        as: "image",
         href: `${cdnBaseUrl}/foreground.webp`,
       },
       {
         rel: "preload",
         as: "image",
-        href: `${cdnBaseUrl}/clouds-bg.webp`,
+        href: `${cdnBaseUrl}/foreground-me-gate.webp`,
+      },
+      {
+        rel: "preload",
+        as: "image",
+        href: `${cdnBaseUrl}/bush_sway.svg`,
       },
     ],
   },
