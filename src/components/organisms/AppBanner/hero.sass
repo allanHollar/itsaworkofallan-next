@@ -1,0 +1,51 @@
+@keyframes scroll-clouds
+  0%
+    transform: translateX(-100%)
+  100%
+    transform: translateX(0%)
+
+@keyframes scroll-clouds-back
+  0%
+    transform: translateX(-100%)
+  100%
+    transform: translateX(0%)
+
+@keyframes float-moon
+  0%
+    transform: translateY(0)
+  50%
+    transform: translateY(-10px)
+  100%
+    transform: translateY(0)
+
+@keyframes cityTwinkle
+  0%, 100%
+    opacity: 0.8
+  50%
+    opacity: 0.3
+
+.city-light
+  position: absolute
+  width: 2px
+  height: 2px
+  border-radius: 50%
+  opacity: 0.6
+  animation: cityTwinkle 1s infinite ease-in-out
+
+.city-light-yellow
+  background-color: #ffecc7
+
+.city-light-red
+  background-color: #ff4d4d
+
+.city-light-white
+  background-color: #ffffff
+
+.moon-float
+  animation: float-moon 6s ease-in-out infinite
+
+.cloud-scroll-back
+  animation: scroll-clouds-back 65s linear infinite
+
+.cloud-scroll
+  animation: scroll-clouds 40s linear infinite

@@ -31,10 +31,10 @@ module.exports = {
         padding: {
           DEFAULT: "1rem",
           sm: "2rem",
-          lg: "5rem",
-          xl: "6rem",
-          "2xl": "8rem",
         },
+      },
+      screens: {
+        sm: "667px", // Override default 'sm' (which is 640px)
       },
       opacity: ["disabled"], // Moved from variants to extend
     },

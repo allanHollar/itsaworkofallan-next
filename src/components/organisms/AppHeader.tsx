@@ -122,7 +122,7 @@ const AppHeader: React.FC = () => {
                   className="group cursor-pointer"
                   key={link.id}
                 >
-                  <span className="border-[#F0BB78] group-hover:border-[#efd5b4] border-b-2 font-semibold text-[#5a5a5a] text-lg group-hover:text-[#c76c3f] transition-all">
+                  <span className="border-[#F0BB78] group-hover:border-[#efd5b4] border-b-2 font-semibold text-[#5a5a5a] text-base sm:text-lg group-hover:text-[#c76c3f] transition-all">
                     {link.title}
                   </span>
                 </ScrollLink>

@@ -1,13 +1,14 @@
 "use client";
 
 import { useMemo, useEffect, useState } from "react";
-import { motion, useAnimation } from "framer-motion";
+import { motion } from "framer-motion";
 import Loading from "@/components/particles/Loading/Loading";
 import Stars from "@/components/particles/Stars";
 import { PageHeading, BlurIn } from "@/components/atoms/TextAnimation";
 import Image from "next/image";
 import { cdnBaseUrl } from "@/config";
 import "./fireflies.sass";
+import "./hero.sass";
 
 type LightColor = "yellow" | "red" | "white";
 
@@ -31,8 +32,6 @@ const imageUrls = [
 const AppBanner = () => {
   const [cityLights, setCityLights] = useState<CityLight[]>([]);
   const [imagesLoaded, setImageLoaded] = useState<number>(0);
-  const backgroundClouds = useAnimation();
-  const midCloudControls = useAnimation();
 
   useEffect(() => {
     let isMounted = true;
@@ -59,21 +58,17 @@ const AppBanner = () => {
     };
   }, []);
 
-  // City light animation
   useEffect(() => {
     const colors: LightColor[] = ["yellow", "red", "white"];
-
     const lights = Array.from({ length: 75 }).map(() => ({
       bottom: Math.random() * 120,
       left: Math.random() * 100,
       delay: Math.random() * 3,
       color: colors[Math.floor(Math.random() * colors.length)],
     }));
-
     setCityLights(lights);
   }, []);
 
-  // Fireflies creation
   const fireflies = useMemo(
     () =>
       Array.from({ length: 50 }, (_, i) => (
@@ -82,83 +77,16 @@ const AppBanner = () => {
     []
   );
 
-  // Clouds background animation
-  useEffect(() => {
-    let isActive = true;
-
-    const run = async () => {
-      await new Promise((resolve) =>
-        requestAnimationFrame(() => requestAnimationFrame(resolve))
-      );
-
-      while (isActive) {
-        await backgroundClouds.start({
-          x: "0%",
-          transition: { duration: 65, ease: "linear" },
-        });
-
-        if (!isActive) break;
-
-        await backgroundClouds.start({
-          x: "-100%",
-          transition: { duration: 0 },
-        });
-
-        await new Promise((resolve) => setTimeout(resolve, 16));
-      }
-    };
-
-    run();
-
-    return () => {
-      isActive = false;
-      backgroundClouds.stop();
-    };
-  }, [backgroundClouds]);
-
-  // Clouds foreground animation
-  useEffect(() => {
-    let isActive = true;
-
-    const run = async () => {
-      await new Promise((resolve) =>
-        requestAnimationFrame(() => requestAnimationFrame(resolve))
-      );
-
-      while (isActive) {
-        await midCloudControls.start({
-          x: "0%",
-          transition: { duration: 30, ease: "linear" },
-        });
-
-        if (!isActive) break;
-
-        await midCloudControls.start({
-          x: "-100%",
-          transition: { duration: 0 },
-        });
-
-        await new Promise((resolve) => setTimeout(resolve, 16));
-      }
-    };
-
-    run();
-
-    return () => {
-      isActive = false;
-      midCloudControls.stop();
-    };
-  }, [midCloudControls]);
-
   return (
-    <div className="relative bg-[#f5e8d7] w-full h-[550px] sm:!h-[800px]">
+    <div className="relative bg-[#f5e8d7] w-full h-[550px] sm:!h-[780px]">
       {imagesLoaded >= imageUrls.length ? (
         <motion.section
           id="hero-banner"
           transition={{ ease: "easeInOut" }}
-          className="relative flex sm:flex-row flex-col justify-center sm:justify-between items-center bg-sky mx-auto max-w-[1600px] h-[550px] sm:!h-[800px] overflow-hidden"
+          className="relative flex sm:flex-row flex-col justify-center sm:justify-between items-center bg-sky mx-auto max-w-[1600px] h-[550px] sm:!h-[780px] overflow-hidden"
         >
           <Stars />
+
           <motion.div
             className="top-0 left-[54%] absolute bg-moon w-[160px] sm:w-[320px] h-[160px] sm:h-[320px]"
             initial={{ x: -300, y: "55%" }}
@@ -166,32 +94,20 @@ const AppBanner = () => {
             transition={{ duration: 10 }}
           />
 
-          <motion.div
-            initial={{ x: "-100%" }}
-            animate={backgroundClouds}
-            className="top-0 sm:top-0 left-0 z-0 absolute flex w-full h-[550px]"
-          >
-            <div className="bg-clouds-mobile bg-size-[100%] sm:!bg-clouds bg-no-repeat bg-top w-full h-[550px] shrink-0" />
-            <div className="bg-clouds-mobile bg-size-[100%] sm:!bg-clouds bg-no-repeat bg-top w-full h-[550px] shrink-0" />
-          </motion.div>
+          {/* Background Clouds */}
+          <div className="top-[15px] sm:top-0 left-0 z-0 absolute flex w-full h-[550px] overflow-hidden">
+            <div className="bg-clouds-mobile bg-size-[100%] sm:bg-clouds bg-no-repeat bg-top opacity-95 w-full h-[550px] shrink-0 cloud-scroll-back" />
+            <div className="bg-clouds-mobile bg-size-[100%] sm:bg-clouds bg-no-repeat bg-top opacity-95 w-full h-[550px] shrink-0 cloud-scroll-back" />
+          </div>
 
           {/* Main Foreground */}
           <div className="bottom-0 z-10 absolute bg-foreground-mobile bg-size-[100%] sm:!bg-[position:center_150px] sm:!bg-foreground sm:bg-cover bg-no-repeat bg-bottom w-full h-[832px]" />
 
           {/* Mid Clouds */}
-          <motion.div
-            initial={{ x: "-100%" }}
-            animate={midCloudControls}
-            transition={{
-              ease: "linear",
-              repeat: Infinity,
-              repeatType: "loop",
-            }}
-            className="bottom-[-80px] sm:bottom-[10px] left-0 z-12 absolute flex w-full h-[350px]"
-          >
-            <div className="bg-clouds-mid-mobile bg-size-[100%] bg-size-cover sm:!bg-clouds-mid bg-repeat-x w-full h-full shrink-0" />
-            <div className="bg-clouds-mid-mobile bg-size-[100%] bg-size-cover sm:!bg-clouds-mid bg-repeat-x w-full h-full shrink-0" />
-          </motion.div>
+          <div className="bottom-[-95px] sm:bottom-[10px] left-0 z-12 absolute flex w-full h-[350px] overflow-hidden">
+            <div className="bg-clouds-mid-mobile bg-size-[100%] sm:bg-clouds-mid bg-repeat-x w-full h-full shrink-0 cloud-scroll" />
+            <div className="bg-clouds-mid-mobile bg-size-[100%] sm:bg-clouds-mid bg-repeat-x w-full h-full shrink-0 cloud-scroll" />
+          </div>
 
           {/* Animated Lights */}
           <motion.div
@@ -228,22 +144,23 @@ const AppBanner = () => {
             </BlurIn>
           </div>
 
+          {/* Bushes Swaying Left*/}
           <Image
             src={`${cdnBaseUrl}/bush_sway.svg`}
             width={1000}
             height={600}
             alt="bush swaying"
-            className="bottom-[-100px] left-[-50%] z-12 absolute"
+            className="bottom-[-65px] sm:bottom-[-100px] left-[-55%] sm:left-[-50%] z-12 absolute"
           />
 
+          {/* Bushes Swaying Right*/}
           <Image
             src={`${cdnBaseUrl}/bush_sway.svg`}
             width={1000}
             height={600}
             alt="bush swaying"
-            className="right-[-50%] bottom-[-100px] z-12 absolute opacity-95"
+            className="right-[-55%] sm:right-[-50%] bottom-[-65px] sm:bottom-[-100px] z-12 absolute opacity-95"
           />
-          {/* Fireflies */}
           {fireflies}
         </motion.section>
       ) : (
