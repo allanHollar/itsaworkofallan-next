@@ -13,6 +13,7 @@ module.exports = {
     extend: {
       backgroundImage: {
         sky: `url('${cdnBaseUrl}/stars-bg.webp')`,
+        "cat-running": `/images/cat-running-sprites.webp`,
         clouds: `url('${cdnBaseUrl}/clouds.webp')`,
         "clouds-mid": `url('${cdnBaseUrl}/mid-clouds.webp')`,
         "clouds-mid-mobile": `url('${cdnBaseUrl}/mid-clouds-mobile.webp')`,
@@ -34,9 +35,9 @@ module.exports = {
         },
       },
       screens: {
-        sm: "667px", // Override default 'sm' (which is 640px)
+        sm: "667px",
       },
-      opacity: ["disabled"], // Moved from variants to extend
+      opacity: ["disabled"],
     },
   },
 };

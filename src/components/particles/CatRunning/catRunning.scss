@@ -1,0 +1,38 @@
+.cat-wrapper {
+  position: absolute;
+  bottom: 100px; // adjust as needed
+  animation: move-cat 5s linear infinite;
+  will-change: transform;
+  top: 458px;
+}
+
+.cat {
+  width: 171px; // one frame width
+  height: 158px; // based on image height
+  background-image: url("/images/cat-running-sprites.webp");
+  background-repeat: no-repeat;
+  background-size: 2048px 158px; // total sprite size
+  background-position: 0 0;
+  image-rendering: pixelated;
+  overflow: hidden;
+
+  animation: run 1.5s steps(12) infinite;
+}
+
+@keyframes run {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: -2048px 0;
+  }
+}
+
+@keyframes move-cat {
+  from {
+    transform: translateX(-200px); // starts offscreen left
+  }
+  to {
+    transform: translateX(100vw); // exits offscreen right
+  }
+}

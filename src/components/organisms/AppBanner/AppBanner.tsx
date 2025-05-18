@@ -4,6 +4,7 @@ import { useMemo, useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import Loading from "@/components/particles/Loading/Loading";
 import Stars from "@/components/particles/Stars";
+import CatRunning from "@/components/particles/CatRunning/CatRunning";
 import { PageHeading, BlurIn } from "@/components/atoms/TextAnimation";
 import Image from "next/image";
 import { cdnBaseUrl } from "@/config";
@@ -86,14 +87,12 @@ const AppBanner = () => {
           className="relative flex sm:flex-row flex-col justify-center sm:justify-between items-center bg-sky mx-auto max-w-[1600px] h-[550px] sm:!h-[780px] overflow-hidden"
         >
           <Stars />
-
           <motion.div
             className="top-0 left-[54%] absolute bg-moon w-[160px] sm:w-[320px] h-[160px] sm:h-[320px]"
             initial={{ x: -300, y: "55%" }}
             animate={{ x: 0, y: 0 }}
             transition={{ duration: 10 }}
           />
-
           {/* Background Clouds */}
           <div className="top-[15px] sm:top-0 left-0 z-0 absolute flex w-full h-[550px] overflow-hidden">
             <div className="bg-clouds-mobile bg-size-[100%] sm:bg-clouds bg-no-repeat bg-top opacity-95 w-full h-[550px] shrink-0 cloud-scroll-back" />
@@ -102,13 +101,11 @@ const AppBanner = () => {
 
           {/* Main Foreground */}
           <div className="bottom-0 z-10 absolute bg-foreground-mobile bg-size-[100%] sm:!bg-[position:center_150px] sm:!bg-foreground sm:bg-cover bg-no-repeat bg-bottom w-full h-[832px]" />
-
           {/* Mid Clouds */}
           <div className="bottom-[-95px] sm:bottom-[10px] left-0 z-12 absolute flex w-full h-[350px] overflow-hidden">
             <div className="bg-clouds-mid-mobile bg-size-[100%] sm:bg-clouds-mid bg-repeat-x w-full h-full shrink-0 cloud-scroll" />
             <div className="bg-clouds-mid-mobile bg-size-[100%] sm:bg-clouds-mid bg-repeat-x w-full h-full shrink-0 cloud-scroll" />
           </div>
-
           {/* Animated Lights */}
           <motion.div
             initial={{ opacity: 0 }}
@@ -128,10 +125,12 @@ const AppBanner = () => {
               />
             ))}
           </motion.div>
-
+          {/* Cat Running */}
+          <div className="top-0 left-0 z-12 absolute">
+            <CatRunning />
+          </div>
           {/* Gate Foreground */}
           <div className="bottom-0 z-12 absolute bg-foreground-me-gate-mobile bg-size-[100%] sm:!bg-[position:center_150px] sm:!bg-foreground-me-gate sm:bg-cover bg-no-repeat bg-bottom w-full h-[832px]" />
-
           {/* Text Content */}
           <div className="z-20 flex flex-col justify-center items-center mt-[-100px] w-full">
             <h1 className="hidden">Hello, I'm Allan</h1>
@@ -143,7 +142,6 @@ const AppBanner = () => {
               Senior Frontend Engineer & UX/UI Enthusiast!
             </BlurIn>
           </div>
-
           {/* Bushes Swaying Left*/}
           <Image
             src={`${cdnBaseUrl}/bush_sway.svg`}
@@ -152,7 +150,6 @@ const AppBanner = () => {
             alt="bush swaying"
             className="bottom-[-65px] sm:bottom-[-100px] left-[-55%] sm:left-[-50%] z-12 absolute"
           />
-
           {/* Bushes Swaying Right*/}
           <Image
             src={`${cdnBaseUrl}/bush_sway.svg`}
