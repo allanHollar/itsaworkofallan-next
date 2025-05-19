@@ -13,7 +13,8 @@ module.exports = {
     extend: {
       backgroundImage: {
         sky: `url('${cdnBaseUrl}/stars-bg.webp')`,
-        "cat-running": `/images/cat-running-sprites.webp`,
+        "cat-running": `url(${cdnBaseUrl}/cat-running-sprites.webp)`,
+        "cat-running-mobile": `url(${cdnBaseUrl}/cat-running-sprites-mobile.webp)`,
         clouds: `url('${cdnBaseUrl}/clouds.webp')`,
         "clouds-mid": `url('${cdnBaseUrl}/mid-clouds.webp')`,
         "clouds-mid-mobile": `url('${cdnBaseUrl}/mid-clouds-mobile.webp')`,

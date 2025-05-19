@@ -93,6 +93,16 @@ export const metadata = {
         as: "image",
         href: `${cdnBaseUrl}/bush_sway.svg`,
       },
+      {
+        rel: "preload",
+        as: "image",
+        href: `${cdnBaseUrl}/cat-running-sprites.webp`,
+      },
+      {
+        rel: "preload",
+        as: "image",
+        href: `${cdnBaseUrl}/cat-running-sprites-mobile.webp`,
+      },
     ],
   },
 };

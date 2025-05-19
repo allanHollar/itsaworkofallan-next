@@ -1,38 +1,115 @@
 .cat-wrapper {
-  position: absolute;
-  bottom: 100px; // adjust as needed
-  animation: move-cat 5s linear infinite;
+  animation: move-cat 3s linear infinite;
   will-change: transform;
-  top: 458px;
 }
 
 .cat {
-  width: 171px; // one frame width
-  height: 158px; // based on image height
-  background-image: url("/images/cat-running-sprites.webp");
-  background-repeat: no-repeat;
-  background-size: 2048px 158px; // total sprite size
   background-position: 0 0;
   image-rendering: pixelated;
-  overflow: hidden;
-
   animation: run 1.5s steps(12) infinite;
+  opacity: 0.95;
 }
 
+// iPhone SE (375x667)
+@media (width: 375px) {
+  #cat-animation {
+    display: block !important;
+  }
+
+  .cat-wrapper {
+    top: 300px;
+  }
+}
+
+// iPhone XR (414x896)
+@media (width: 414px) {
+  #cat-animation {
+    display: block !important;
+  }
+
+  .cat-wrapper {
+    top: 293px;
+  }
+}
+
+// iPhone 12 Pro (390x844)
+@media (width: 390px) {
+  #cat-animation {
+    display: block !important;
+  }
+
+  .cat-wrapper {
+    top: 300px;
+  }
+}
+
+// iPhone 14 Pro Max (430x932)
+@media (width: 430px) {
+  #cat-animation {
+    display: block !important;
+  }
+
+  .cat-wrapper {
+    top: 285px;
+  }
+}
+
+// Pixel 7 (412x915)
+// Samsung Galaxy S8+ (360x740)
+@media (width: 412px), (width: 360px) {
+  #cat-animation {
+    display: block !important;
+  }
+
+  .cat-wrapper {
+    top: 290px;
+  }
+}
+
+/* Mobile default keyframes */
 @keyframes run {
   from {
     background-position: 0 0;
   }
   to {
-    background-position: -2048px 0;
+    background-position: -1213px 0; // mobile sprite
   }
 }
 
 @keyframes move-cat {
   from {
-    transform: translateX(-200px); // starts offscreen left
+    transform: translateX(-150px); // adjust for mobile
   }
   to {
-    transform: translateX(100vw); // exits offscreen right
+    transform: translateX(100vw);
+  }
+}
+
+/* Desktop overrides */
+@media (min-width: 667px) {
+  .cat-wrapper {
+    animation: move-cat-lg 6s linear infinite;
+  }
+
+  .cat {
+    animation: run-lg 1.2s steps(12) infinite;
+  }
+
+  @keyframes run-lg {
+    from {
+      background-position: 0 0;
+    }
+    to {
+      background-position: -2048px 0;
+    }
+  }
+
+  @keyframes move-cat-lg {
+    from {
+      transform: translateX(-200px);
+    }
+    to {
+      transform: translateX(100vw);
+    }
   }
 }

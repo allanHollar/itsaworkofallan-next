@@ -28,6 +28,8 @@ const imageUrls = [
   `${cdnBaseUrl}/foreground.webp`,
   `${cdnBaseUrl}/foreground-me-gate.webp`,
   `${cdnBaseUrl}/bush_sway.svg`,
+  `${cdnBaseUrl}/cat-running-sprites.webp`,
+  `${cdnBaseUrl}/cat-running-sprites-mobile.webp`,
 ];
 
 const AppBanner = () => {
@@ -100,12 +102,17 @@ const AppBanner = () => {
           </div>
 
           {/* Main Foreground */}
-          <div className="bottom-0 z-10 absolute bg-foreground-mobile bg-size-[100%] sm:!bg-[position:center_150px] sm:!bg-foreground sm:bg-cover bg-no-repeat bg-bottom w-full h-[832px]" />
+          <div
+            id="foreground-me"
+            className="bottom-0 z-10 absolute bg-foreground-mobile bg-size-[100%] sm:!bg-[position:center_150px] sm:!bg-foreground sm:bg-cover bg-no-repeat bg-bottom w-full h-[832px]"
+          />
+
           {/* Mid Clouds */}
           <div className="bottom-[-95px] sm:bottom-[10px] left-0 z-12 absolute flex w-full h-[350px] overflow-hidden">
             <div className="bg-clouds-mid-mobile bg-size-[100%] sm:bg-clouds-mid bg-repeat-x w-full h-full shrink-0 cloud-scroll" />
             <div className="bg-clouds-mid-mobile bg-size-[100%] sm:bg-clouds-mid bg-repeat-x w-full h-full shrink-0 cloud-scroll" />
           </div>
+
           {/* Animated Lights */}
           <motion.div
             initial={{ opacity: 0 }}
@@ -125,12 +132,18 @@ const AppBanner = () => {
               />
             ))}
           </motion.div>
+
           {/* Cat Running */}
-          <div className="top-0 left-0 z-12 absolute">
+          <div
+            id="cat-animation"
+            className="sm:!block top-0 left-0 z-12 absolute hidden w-full h-[832px]"
+          >
             <CatRunning />
           </div>
+
           {/* Gate Foreground */}
           <div className="bottom-0 z-12 absolute bg-foreground-me-gate-mobile bg-size-[100%] sm:!bg-[position:center_150px] sm:!bg-foreground-me-gate sm:bg-cover bg-no-repeat bg-bottom w-full h-[832px]" />
+
           {/* Text Content */}
           <div className="z-20 flex flex-col justify-center items-center mt-[-100px] w-full">
             <h1 className="hidden">Hello, I'm Allan</h1>
@@ -142,6 +155,7 @@ const AppBanner = () => {
               Senior Frontend Engineer & UX/UI Enthusiast!
             </BlurIn>
           </div>
+
           {/* Bushes Swaying Left*/}
           <Image
             src={`${cdnBaseUrl}/bush_sway.svg`}
@@ -150,6 +164,7 @@ const AppBanner = () => {
             alt="bush swaying"
             className="bottom-[-65px] sm:bottom-[-100px] left-[-55%] sm:left-[-50%] z-12 absolute"
           />
+
           {/* Bushes Swaying Right*/}
           <Image
             src={`${cdnBaseUrl}/bush_sway.svg`}
@@ -158,6 +173,7 @@ const AppBanner = () => {
             alt="bush swaying"
             className="right-[-55%] sm:right-[-50%] bottom-[-65px] sm:bottom-[-100px] z-12 absolute opacity-95"
           />
+
           {fireflies}
         </motion.section>
       ) : (
