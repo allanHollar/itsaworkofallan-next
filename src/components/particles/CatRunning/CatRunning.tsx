@@ -22,7 +22,7 @@ const CatRunning = () => {
   }, [showCat]);
 
   return showCat ? (
-    <div id="cat-animation" className="sm:top-[458px] absolute cat-wrapper">
+    <div id="cat-animation" className="sm:top-[460px] absolute cat-wrapper">
       <div className="bg-[length:1213px_94px] bg-cat-running-mobile sm:bg-[length:2048px_158px] sm:bg-cat-running bg-no-repeat w-[100px] sm:w-[171px] h-[94px] sm:h-[158px] overflow-hidden cat" />
     </div>
   ) : null;

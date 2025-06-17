@@ -17,7 +17,7 @@
   }
 
   .cat-wrapper {
-    top: 300px;
+    top: 310px;
   }
 }
 
@@ -55,14 +55,23 @@
 }
 
 // Pixel 7 (412x915)
-// Samsung Galaxy S8+ (360x740)
-@media (width: 412px), (width: 360px) {
+@media (width: 412px) {
   #cat-animation {
     display: block !important;
   }
 
   .cat-wrapper {
     top: 290px;
+  }
+}
+// Samsung Galaxy S8+ (360x740)
+@media (width: 360px) {
+  #cat-animation {
+    display: block !important;
+  }
+
+  .cat-wrapper {
+    top: 315px;
   }
 }
 
