@@ -58,7 +58,7 @@ export const resumeData: CoreSkills = {
       jobTitle: "Sr. Front-End Engineer",
       tenure: "Dec 2015 - Jan 2020",
       responsibilities: [
-        "Tech Stack: React, Node.js, Ruby on Rails, GraphQL, MySQL, MobX, Solidus CMS",
+        "Tech Stack: React, Node.js, Ruby on Rails, GraphQL, MobX, Solidus CMS",
         "Built and maintained frontend architectures using React, Node.js, and GraphQL.",
         "Worked with UX/UI teams to ensure design and development best practices.",
         "Integrated REST and GraphQL APIs, optimizing data flow for product pages.",
