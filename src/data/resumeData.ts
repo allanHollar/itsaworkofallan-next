@@ -42,7 +42,7 @@ export const resumeData: CoreSkills = {
   workHistory: [
     {
       company: "Five Below - e-commerce",
-      jobTitle: "Sr. Front-End Engineer",
+      jobTitle: "Lead Senior Front-End Engineer",
       tenure: "Jan 2020 - Oct 2024",
       responsibilities: [
         "Tech Stack: React, TypeScript, GraphQL, Node.js, Tailwind CSS, CommerceTools CMS",
@@ -55,7 +55,7 @@ export const resumeData: CoreSkills = {
     },
     {
       company: "Hollar - e-commerce",
-      jobTitle: "Sr. Front-End Engineer",
+      jobTitle: "Senior Front-End Engineer",
       tenure: "Dec 2015 - Jan 2020",
       responsibilities: [
         "Tech Stack: React, Node.js, Ruby on Rails, GraphQL, MobX, Solidus CMS",

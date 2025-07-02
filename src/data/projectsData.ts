@@ -30,7 +30,7 @@ export const projectsData: ProjectFullDetails = {
     projectHeader: {
       title: "Five Below",
       tenure: "Jan 2020 - Oct 2024",
-      jobTitle: "Senior Frontend Engineer",
+      jobTitle: "Lead Senior Front-End Engineer",
     },
     projectImages: [
       {
@@ -88,12 +88,12 @@ export const projectsData: ProjectFullDetails = {
         {
           id: 1,
           details:
-            "At Five Below, I played a pivotal role as a Senior Frontend Engineer, where I was responsible for designing and optimizing the front-end experience for a large-scale e-commerce platform. The team and I tackled the challenge of creating a seamless, responsive, and scalable UI while integrating modern frameworks like React to enhance performance and usability. We aimed to deliver a consistent, fast, and intuitive user experience across both desktop and mobile platforms. One of the most rewarding aspects of the role was collaborating with cross-functional teams—including designers, product managers, and backend engineers—to ensure that our solutions aligned with business goals while meeting customer expectations. Additionally, we adopted Agile and Scrum methodologies to break down complex tasks, allowing us to iterate rapidly while maintaining code quality and performance standards.",
+            "At Five Below, I played a pivotal role as a Lead Senior Frontend Engineer, where I was responsible for designing and optimizing the front-end experience for a large-scale e-commerce platform. The team and I tackled the challenge of creating a seamless, responsive, and scalable UI while integrating modern frameworks like React to enhance performance and usability. We aimed to deliver a consistent, fast, and intuitive user experience across both desktop and mobile platforms. One of the most rewarding aspects of the role was collaborating with cross-functional teams—including designers, product managers, and backend engineers—to ensure that our solutions aligned with business goals while meeting customer expectations. Additionally, we adopted Agile and Scrum methodologies to break down complex tasks, allowing us to iterate rapidly while maintaining code quality and performance standards.",
         },
         {
           id: 2,
           details:
-            "One of our biggest challenges at Five Below was ensuring performance and stability during high-traffic events, like seasonal sales and product launches. To address this, we prioritized performance optimization and load testing, identifying and resolving bottlenecks to improve page load times and responsiveness. Implementing dynamic UI components and conducting thorough code reviews helped maintain a robust and scalable architecture. We also focused on enhancing accessibility and cross-browser compatibility, ensuring that users = diverse environments could easily navigate the site. The successful re-platforming effort not only improved the website's performance and scalability but also boosted customer satisfaction and engagement. This experience honed my ability to collaborate effectively, solve technical challenges, and deliver impactful solutions in a fast-paced, dynamic environment.",
+            "One of our biggest challenges at Five Below was ensuring performance and stability during high-traffic events, like seasonal sales and product launches. To address this, we prioritized performance optimization and load testing, identifying and resolving bottlenecks to improve page load times and responsiveness. Implementing dynamic UI components and conducting thorough code reviews helped maintain a robust and scalable architecture. We also focused on enhancing accessibility and cross-browser compatibility, ensuring that users diverse environments could easily navigate the site. The successful re-platforming effort not only improved the website's performance and scalability but also boosted customer satisfaction and engagement. This experience honed my ability to collaborate effectively, solve technical challenges, and deliver impactful solutions in a fast-paced, dynamic environment.",
         },
       ],
     },
@@ -161,7 +161,7 @@ export const projectsData: ProjectFullDetails = {
         {
           id: 1,
           details:
-            "At Hollar, I was one of the first engineers to join a small startup team of around 15 people, which eventually grew to 45 members. Hollar was an online dollar store dedicated to providing great products at affordable prices, attracting a large and diverse customer base. As part of a tight-knit tech team of about 10 people, I played a crucial role in building and scaling the platform = the ground up. My primary focus was developing responsive and scalable UI components using React, JavaScript, HTML, and CSS, while also working closely with designers, product managers, and backend engineers to create seamless user experiences.",
+            "At Hollar, I was one of the first engineers to join a small startup team of around 15 people, which eventually grew to 45 members. Hollar was an online dollar store dedicated to providing great products at affordable prices, attracting a large and diverse customer base. As part of a tight-knit tech team of about 10 people, I played a crucial role in building and scaling the platform the ground up. My primary focus was developing responsive and scalable UI components using React, JavaScript, HTML, and CSS, while also working closely with designers, product managers, and backend engineers to create seamless user experiences.",
         },
         {
           id: 2,
