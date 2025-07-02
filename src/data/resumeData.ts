@@ -139,8 +139,9 @@ export const resumeData: CoreSkills = {
     "Feature Flags",
     "Figma",
     "Git",
+    "GitHub",
+    "GitHub Copilot",
     "Google Analytics",
-    "Micro-Frontend Components",
     "Sketch",
   ],
   softSkills: [
