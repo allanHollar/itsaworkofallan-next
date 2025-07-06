@@ -14,3 +14,10 @@ declare module "*.svg" {
   const value: string;
   export default value;
 }
+
+export {};
+declare global {
+  interface Window {
+    gtag: (...args: unknown[]) => void;
+  }
+}

@@ -13,11 +13,13 @@ import Sakura from "@/components/particles/Sakura/Sakura";
 
 // Config & Styles
 import { cdnBaseUrl } from "@/config";
+import { useOutboundClick } from "@/hooks/useOutboundClick";
 
 interface SocialLink {
   id: number;
   icon: JSX.Element;
   url: string;
+  linkName: string;
 }
 
 const ProfileImage = `${cdnBaseUrl}/ar-anime-profile.webp`;
@@ -32,6 +34,7 @@ const socialLinks: SocialLink[] = [
       />
     ),
     url: "https://www.linkedin.com/in/allanritumban/",
+    linkName: "LinkedIn",
   },
   {
     id: 2,
@@ -42,10 +45,13 @@ const socialLinks: SocialLink[] = [
       />
     ),
     url: "https://github.com/allanHollar",
+    linkName: "GitHub Profile",
   },
 ];
 
 const AppFooter = () => {
+  const outBoundClick = useOutboundClick();
+
   return (
     <div
       id="connect"
@@ -87,6 +93,7 @@ const AppFooter = () => {
                           className="slider-nav-item"
                           target="_blank"
                           rel="noreferrer"
+                          onClick={() => outBoundClick(link.url, link.linkName)}
                         >
                           {link.icon}
                         </a>

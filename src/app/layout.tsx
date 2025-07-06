@@ -2,7 +2,8 @@
 import Script from "next/script";
 import type { Viewport } from "next";
 import { Happy_Monkey, Lato } from "next/font/google";
-import { cdnBaseUrl } from "@/config";
+import { cdnBaseUrl, gaTrackingID } from "@/config";
+import Analytics from "@/components/Analytics";
 
 // Global styles
 import "./globals.css";
@@ -133,10 +134,17 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        <link rel="preload" as="image" href={`${cdnBaseUrl}/footer.webp`} />
+      </head>
+      <body>
+        <Providers>
+          <ClientLayout>{children}</ClientLayout>
+        </Providers>
+
         {/* GA */}
         <Script
           async
-          src="https://www.googletagmanager.com/gtag/js?id=G-Z9MGEE3QZ8"
+          src={`https://www.googletagmanager.com/gtag/js?id=${gaTrackingID}`}
         ></Script>
         <Script
           id="google-analytics"
@@ -148,16 +156,13 @@ export default function RootLayout({
             dataLayer.push(arguments);
           }
           gtag("js", new Date());
-          gtag("config", "G-Z9MGEE3QZ8");
+          gtag("config", "${gaTrackingID}", {debug_mode: true, page_path: window.location.pathname });
         `,
           }}
         ></Script>
-        <link rel="preload" as="image" href={`${cdnBaseUrl}/footer.webp`} />
-      </head>
-      <body>
-        <Providers>
-          <ClientLayout>{children}</ClientLayout>
-        </Providers>
+
+        {/* Analytics Hook */}
+        <Analytics />
       </body>
     </html>
   );

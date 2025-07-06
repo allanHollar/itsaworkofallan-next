@@ -11,6 +11,7 @@ import Image from "next/image";
 import { useProjects } from "@/context/ProjectsContext";
 import { cdnBaseUrl } from "@/config";
 import ProjectSingle from "@/components/particles/projects/ProjectSingle";
+import { useProjectView } from "@/hooks/useProjectView";
 
 const HappyNinja = `${cdnBaseUrl}/happy-ninja.webp`;
 
@@ -28,6 +29,7 @@ const itemVariant = {
 
 const ProjectsGrid: FC = () => {
   const { projects } = useProjects();
+  const trackClick = useProjectView();
 
   return (
     <section
@@ -60,6 +62,7 @@ const ProjectsGrid: FC = () => {
             <Link
               href={`/projects/${projectId}`}
               className="mb-10 sm:mb-0 last:mb-0"
+              onClick={() => trackClick(projectData.title)}
             >
               <ProjectSingle
                 title={projectData.title}
